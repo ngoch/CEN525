@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="student_schema" id="5F532A86-9F56-0F47-43F7-716CA901E7D5" mainViewID="0CE61228-FB88-5FEE-83C3-B075E344342F">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:06:07 UTC</createdTime>
+<ownerDesignName>week5</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>980FCE9E-D688-BDF0-C89A-C9FB2DCAED45</selectedRDBMSSite>
+</relationalModel>

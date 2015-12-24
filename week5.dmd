@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="week5" id="4B19B773-B91E-48A3-9E26-ACA05C749A67" version="3.5">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:04:57 UTC</createdTime>
+<ownerDesignName>week5</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>4B19B773-B91E-48A3-9E26-ACA05C749A67</designId>
+</OSDM_Design>

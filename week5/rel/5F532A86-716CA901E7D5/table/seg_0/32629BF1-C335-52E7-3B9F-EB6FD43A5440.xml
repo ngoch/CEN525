@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="32629BF1-C335-52E7-3B9F-EB6FD43A5440" name="register">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>ED525321-9198-E5F4-6C46-2B9882901A4B</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="p_id" id="64CA96D7-D84E-E73C-299C-84E64BFA75EF">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>0ED250D4-A9C7-9FF0-EBED-E655B21E0166</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>8</dataTypeSize>
+<ownDataTypeParameters>8,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sub_id" id="61F857B1-2163-995D-ADCD-BCAE8D068B15">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>6A04DAB7-008C-278D-084E-BC4743CD7579</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="r_date" id="78E7F813-48DF-28FB-2765-5C494A985EC5">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>040062AE-6AFF-0F18-0DFE-3175CE7B5FA1</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="score" id="56AAE830-DF8B-98B8-DC51-29BF9B1C5681">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>CD5D3D3B-B8A3-4BAE-FF3F-28380F480F59</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="47B5BDA2-C6E1-8BB8-9E02-AF7E4FA6F6C1" name="register_PK">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>E666B6B7-6697-4249-9143-DEAD9878F7EA</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61F857B1-2163-995D-ADCD-BCAE8D068B15"/>
+<colUsage columnID="64CA96D7-D84E-E73C-299C-84E64BFA75EF"/>
+<colUsage columnID="78E7F813-48DF-28FB-2765-5C494A985EC5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

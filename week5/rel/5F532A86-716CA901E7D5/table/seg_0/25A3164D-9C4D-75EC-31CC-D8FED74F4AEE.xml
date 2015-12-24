@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="25A3164D-9C4D-75EC-31CC-D8FED74F4AEE" name="persons">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>6182027D-91CF-7C4D-BD7D-C0DA17A7946C</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<abbreviation>persons</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="688D2EE2-7570-A709-23DB-B6BF0C9048AF">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<comment>Student identifier</comment>
+<generatorID>1289614D-D0BC-3311-2B8F-04D3E92CAE54</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>8 BYTE</dataTypeSize>
+<ownDataTypeParameters>8 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="last_name" id="D7AA3B76-1631-FD6A-F646-B0FEF03A5A56">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<comment>Last name</comment>
+<generatorID>0606CCC9-1B1A-7F5F-297D-97F119116917</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="first_name" id="0954E656-BA61-04E7-65E3-E86E3FFF8D92">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<comment>First name</comment>
+<generatorID>608EF997-8938-4F58-254A-9BFEE76077F0</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dob" id="52DCEE8F-775C-15FB-47D8-997D1F8608BA">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>2941205D-FC4A-7B68-A199-16C315A35A55</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="faculty_code" id="8B293A82-41D4-2649-DB32-342A03915DF4">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<comment>Code </comment>
+<generatorID>11C09385-E404-41BB-896A-F8B7B6668BDB</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>3 BYTE</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9C6B8053-FEAA-51E9-6BE5-5B5D08E27E3F" referredColumn="E3DFE853-FAD4-7163-2510-B662949834F8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B8F49C79-899E-BE92-CDC6-01C25E38AD80" name="persons_PK">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>9728F95B-D779-BA4B-3B55-207CC49C3F02</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="688D2EE2-7570-A709-23DB-B6BF0C9048AF"/>
+<colUsage columnID="8B293A82-41D4-2649-DB32-342A03915DF4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="36A53AA7-19ED-9D73-4D76-3E8957536DC3" name="persons_faculty_FK">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>01DAABD6-4115-BD56-F38F-3EAC111A934D</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8B293A82-41D4-2649-DB32-342A03915DF4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

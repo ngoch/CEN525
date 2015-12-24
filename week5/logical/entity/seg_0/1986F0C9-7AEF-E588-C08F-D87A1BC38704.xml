@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1986F0C9-7AEF-E588-C08F-D87A1BC38704" name="faculty">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:15:41 UTC</createdTime>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="code" id="91F42275-3167-A353-3752-A0DD19C47E91">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:16:18 UTC</createdTime>
+<comment>Code </comment>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>3 BYTE</dataTypeSize>
+<ownDataTypeParameters>3 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="E63BEDB9-1EF4-5BAA-AA50-9CDD26F26A5A">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:19:34 UTC</createdTime>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4DA3322C-49D9-787D-535B-AEC099A64760" name="faculty PK">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:17:59 UTC</createdTime>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>91F42275-3167-A353-3752-A0DD19C47E91</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

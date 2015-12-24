@@ -1,0 +1,161 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4C7F40B0-156C-EFCF-6E8C-04915547D0F6" name="subjects">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>0B0A3AEC-741F-A1F0-A48F-1BD76C3902B4</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="subj_id" id="F9456DB8-6C9C-DD35-00BF-658EBA1E4F9A">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>91309552-900A-1BA3-D8F4-4379CE8968C3</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6 BYTE</dataTypeSize>
+<ownDataTypeParameters>6 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="subj_name" id="3E9422F9-5927-D27B-85CB-82069C2DF6F2">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>4E6EEF3E-F097-7C8D-9E2E-E1D7A05854BB</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="register_sub_id" id="A1A1C154-B45E-E13D-F97F-E83AB8DA06F4">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>C18060B9-5C98-CD9B-0801-986940A0840E</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1FF82242-98DC-96B8-C0C2-BB9804E035E5" referredColumn="61F857B1-2163-995D-ADCD-BCAE8D068B15"/>
+</associations>
+</Column>
+<Column name="register_p_id" id="CA35011A-3F54-2999-0326-02A25A896CB0">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>D0A566C9-33BE-7C2B-D612-266ACEF34A36</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>8</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1FF82242-98DC-96B8-C0C2-BB9804E035E5" referredColumn="64CA96D7-D84E-E73C-299C-84E64BFA75EF"/>
+</associations>
+</Column>
+<Column name="persons_id" id="85F7381E-6583-AC38-83F2-FEE5A3D4152B">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<comment>Student identifier</comment>
+<generatorID>E11AFCC2-EE6B-73DE-2189-BBEC61B4BFB9</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>8 BYTE</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="12041BD4-4D2C-2006-447A-0301F470BC6F" referredColumn="688D2EE2-7570-A709-23DB-B6BF0C9048AF"/>
+</associations>
+</Column>
+<Column name="persons_code" id="26155587-1A5A-3981-54E1-38F59C4EB5FB">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<comment>Code </comment>
+<generatorID>698A8F67-1A58-7503-EDE6-B0F96DD4E00E</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>3 BYTE</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="12041BD4-4D2C-2006-447A-0301F470BC6F" referredColumn="8B293A82-41D4-2649-DB32-342A03915DF4"/>
+</associations>
+</Column>
+<Column name="register_r_date" id="A2B77191-5599-4BED-0D19-AB7710123308">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>9A0F0775-9B0E-5FEB-E3A6-4510B09F5302</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1FF82242-98DC-96B8-C0C2-BB9804E035E5" referredColumn="78E7F813-48DF-28FB-2765-5C494A985EC5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AD02AC57-89AE-F7E5-1BAA-8C6729393F95" name="subjects_PK">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>8DB35BC4-E238-F35E-9DEE-D5893B1EEFBC</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F9456DB8-6C9C-DD35-00BF-658EBA1E4F9A"/>
+<colUsage columnID="A1A1C154-B45E-E13D-F97F-E83AB8DA06F4"/>
+<colUsage columnID="CA35011A-3F54-2999-0326-02A25A896CB0"/>
+<colUsage columnID="A2B77191-5599-4BED-0D19-AB7710123308"/>
+<colUsage columnID="85F7381E-6583-AC38-83F2-FEE5A3D4152B"/>
+<colUsage columnID="26155587-1A5A-3981-54E1-38F59C4EB5FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D49C7869-3AB4-8AFD-1F94-244FAEA54A27" name="subjects_register_FK">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>836E5CB4-A35E-4D78-AE2D-64F4990BAF43</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A1A1C154-B45E-E13D-F97F-E83AB8DA06F4"/>
+<colUsage columnID="CA35011A-3F54-2999-0326-02A25A896CB0"/>
+<colUsage columnID="A2B77191-5599-4BED-0D19-AB7710123308"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6187E058-074B-F3C7-BA4C-5B2D02A55931" name="subjects_persons_FK">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:38:52 UTC</createdTime>
+<generatorID>CBDADC41-1726-E24A-F628-DEA70D7D810F</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="85F7381E-6583-AC38-83F2-FEE5A3D4152B"/>
+<colUsage columnID="26155587-1A5A-3981-54E1-38F59C4EB5FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="student_and_faculty" directorySegmentName="seg_0" id="01DAABD6-4115-BD56-F38F-3EAC111A934D">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:23:08 UTC</createdTime>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<sourcePk>4DA3322C-49D9-787D-535B-AEC099A64760</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>1986F0C9-7AEF-E588-C08F-D87A1BC38704</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>6182027D-91CF-7C4D-BD7D-C0DA17A7946C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

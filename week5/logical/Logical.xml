@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="5DA1E16D-8242-64B5-8E44-9F1EAFBFCE19" mainViewID="2F599BA6-C73D-ED7A-E852-B87C98B7E634">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:04:57 UTC</createdTime>
+<ownerDesignName>week5</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

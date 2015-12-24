@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6182027D-91CF-7C4D-BD7D-C0DA17A7946C" name="persons">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:06:07 UTC</createdTime>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>persons</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="1289614D-D0BC-3311-2B8F-04D3E92CAE54">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:06:30 UTC</createdTime>
+<comment>Student identifier</comment>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>8 BYTE</dataTypeSize>
+<ownDataTypeParameters>8 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="last_name" id="0606CCC9-1B1A-7F5F-297D-97F119116917">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:06:59 UTC</createdTime>
+<comment>Last name</comment>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="first_name" id="608EF997-8938-4F58-254A-9BFEE76077F0">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:07:52 UTC</createdTime>
+<comment>First name</comment>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dob" id="2941205D-FC4A-7B68-A199-16C315A35A55">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:10:50 UTC</createdTime>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="code" id="11C09385-E404-41BB-896A-F8B7B6668BDB">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:23:08 UTC</createdTime>
+<comment>Code </comment>
+<generatorID>01DAABD6-4115-BD56-F38F-3EAC111A934D</generatorID>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<referedAttribute>91F42275-3167-A353-3752-A0DD19C47E91</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>3 BYTE</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="9728F95B-D779-BA4B-3B55-207CC49C3F02" name="students PK">
+<createdBy>ngoch</createdBy>
+<createdTime>2015-11-02 16:08:50 UTC</createdTime>
+<ownerDesignName>week5</ownerDesignName>
+<engineerTo>
+<item key="5F532A86-9F56-0F47-43F7-716CA901E7D5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1289614D-D0BC-3311-2B8F-04D3E92CAE54</attributeRef>
+<attributeRef>11C09385-E404-41BB-896A-F8B7B6668BDB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
