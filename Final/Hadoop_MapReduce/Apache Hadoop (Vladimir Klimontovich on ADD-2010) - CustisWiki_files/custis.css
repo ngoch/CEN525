@@ -1,0 +1,83 @@
+/**
+ * CSS in this file is used by *all* skins (that have any CSS at all). Be
+ * careful what you put in here, since what looks good in one skin may not in
+ * another, but don't ignore the poor non-Monobook users either.
+ */
+
+/* CustIS style patches */
+div.printonly { display: none; }
+
+div#editpage-copywarn { display: none; }
+
+div.cis-note { font-size: small; font-family: cursive; margin: 10px; padding: 10px; width: 80%; border: 1px dashed #8cacbb; }
+
+.tagcloud { width: 98%; text-align: center; background-color: #FDFDFD; border: 1px solid #EEEEEE; padding: 15px 10px 15px 10px; }
+
+div#content p { text-align: justify; }
+div#content center p { text-align: center; }
+div#content div.center, div#content div.center p { text-align: center; width: auto; }
+
+div#content div.paragraph { text-align: justify; }
+div#content center div.paragraph { text-align: center; }
+
+.createboxInput { font-size: 13px; }
+
+#bodyContent h3 { border-bottom: 1px solid #aaa; font-size: 140%; font-weight: bold; }
+#bodyContent h4 { font-size: 132%; }
+#bodyContent h5 { font-size: 116%; }
+#bodyContent h6 { font-size: 100%; }
+
+dd { margin-left: 20px; }
+
+.tableborder1black { border-collapse: collapse; }
+.tableborder1black td, .tableborder1black th { border: 1px solid black; }
+.tableborder1black th { background-color: #D0D0D0; }
+
+.simpletable { border-collapse: collapse; }
+.simpletable td, .simpletable th { border: 1px solid black; }
+.simpletable th { background-color: #D0D0D0; text-align: left; white-space: nowrap; }
+
+#userSummaryButtonsA a { margin-right: 0.5em; }
+
+blockquote { border: 1px dashed #ffc000; padding: 0.5em; }
+
+select { vertical-align: baseline; }
+
+.mw-htmlform-field-UploadSourceField .mw-label { white-space: nowrap; }
+
+/* Hierarchical numbering of HTML lists */
+ol.multinum, .multinum ol { counter-reset: item; margin-left: 2em; padding-left: 1em; }
+ol.multinum ol, .multinum ol ol { padding-left: 0; }
+ol.multinum li, .multinum ol li { display: block; }
+ol.multinum li:before, .multinum ol li:before { margin-left: -2em; content: counters(item, ".") ". "; counter-increment: item; }
+
+/* Non-jQuery version of [[mw:Reference Tooltips]]. See also common.js */
+.referencetooltip {
+    position: absolute;
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    z-index: 5;
+    opacity: 0;
+    border: #080086 2px solid;
+    max-width: 260px;
+    padding: 10px 8px 13px 8px;
+    margin: 0px;
+    background-color: #F7F7F7;
+    box-shadow: 2px 4px 2px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 2px 4px 2px rgba(0,0,0,0.3);
+}
+.referencetooltip.hidden {
+    opacity: 0;
+    transition: opacity 100ms ease-out 0s;
+    -moz-transition: opacity 100ms ease-out 0s;
+}
+.referencetooltip.shown {
+    opacity: 1;
+    transition: opacity 100ms ease-in 0s;
+    -moz-transition: opacity 100ms ease-in 0s;
+}
+
+div.mw-collapsible .mw-collapsible-toggle {
+    float: left;
+}

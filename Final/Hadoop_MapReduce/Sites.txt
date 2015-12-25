@@ -1,0 +1,2 @@
+﻿http://www.tutorialspoint.com/hadoop/ 
+http://kickstarthadoop.blogspot.com/2011/04/word-count-hadoop-map-reduce-example.html

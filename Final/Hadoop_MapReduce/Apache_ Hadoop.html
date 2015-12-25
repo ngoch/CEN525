@@ -1,0 +1,1176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0222)http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#SQL:_.D0.9F.D1.80.D0.B8.D0.BD.D1.86.D0.B8.D0.BF -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru" dir="ltr" class="client-js translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="google-site-verification" content="anyU3u45qDhtfNNBz4KB8XvxmIlUSVknkU0Nf92117M">
+        <meta name="yandex-verification" content="61f5d9b5d45859e0">
+        <meta name="generator" content="MediaWiki 1.18.5">
+<link rel="shortcut icon" href="http://lib.custis.ru/custisinstall/favicons/custiswiki.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://lib.custis.ru/opensearch_desc.php" title="CustisWiki (ru)">
+<link rel="EditURI" type="application/rsd+xml" href="http://lib.custis.ru/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="CustisWiki - Atom-Feed" href="http://lib.custis.ru/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:RecentChanges&feed=atom">        <title>Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki</title>
+        <link rel="stylesheet" href="http://lib.custis.ru/load.php?debug=false&lang=ru&modules=ext.TopCatlinks%7Cmediawiki.legacy.commonPrint%2Cshared&only=styles&skin=custisru&*">
+<link rel="stylesheet" href="http://lib.custis.ru/skins/custisru/cis.css?303" media="screen">
+<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE]><link rel="stylesheet" href="/skins/custisru/IEFixes.css?303" media="screen" /><![endif]-->
+<link rel="stylesheet" href="http://lib.custis.ru/skins/custisru/common.css?303" media="screen">
+<link rel="stylesheet" href="http://lib.custis.ru/skins/custisru/print.css?303" media="print">
+<link rel="stylesheet" href="http://lib.custis.ru/skins/common/commonPrint.css?303" media="print">
+<link rel="stylesheet" href="http://lib.custis.ru/extensions/SlimboxThumbs/slimbox/css/slimbox2.css">
+<link rel="stylesheet" href="http://lib.custis.ru/extensions/Wikilog/style/wikilog.css?6"><style type="text/css" media="all">.like-cl{border:1px solid #AAA;background-color:#F9F9F9;padding:5px}.like-cl-outer{display:inline-block;margin:0 0 0 2px;clear:none;float:left;position:relative}
+
+/* cache key: wiki13:resourceloader:filter:minify-css:4:0ea6207b7842048386be8526199dcc4b */
+</style><style type="text/css" media="all">#p-favratebar{overflow:visible}.skin-vector #p-favratebar{margin-right:15px}.favtoggle{width:100%;position:relative}.favstatus{z-index:-1;position:absolute;padding:0.5em;background:white;border:1px solid gray;visibility:hidden;opacity:0}.favstatus.favvisible{z-index:10;visibility:visible;opacity:1;transition:opacity 150ms ease-out 0s;-moz-transition:opacity 150ms ease-out 0s;-o-transition:opacity 150ms ease-out 0s;-webkit-transition:opacity 150ms ease-out 0s}.favcomment{font-size:100%}.favcomment.favempty{color:#aaa;font-style:italic}.favtogglebtn{cursor:pointer;position:absolute;top:-26px;right:0;width:16px;height:16px}.favbar{height:7px;border:1px outset gray;margin:2px 0 0 0;width:100%;background-color:gray}img.fav1:hover,img.fav0{background:url(http://lib.custis.ru/extensions/FavRate/asteriskgray.png?2013-12-09T14:41:40Z) no-repeat}img.fav1,img.fav0:hover{background:url(http://lib.custis.ru/extensions/FavRate/asterisk.png?2013-12-09T14:41:40Z) no-repeat}.favlinks{margin:0;text-align:center;font-size:90%}.favlinks a{margin:0.5em 0}.wl-comment-action-fav1 a{color:#e0e}.wl-comment-tools li.wl-comment-action-fav1:hover{background:#c0c}.wl-comment-tools li.wl-comment-action-fav1:hover a{color:white}.wl-comment-tools li.wl-comment-action-fav0:hover{background:#c0c}.wl-comment-tools li.wl-comment-action-fav0:hover a{color:white}@media screen{.wl-comment-tools li.hasfav{display:inline}}.skin-vector .favlinks{font-size:70%}.skin-vector .favtogglebtn{top:-45px}
+
+/* cache key: wiki13:resourceloader:filter:minify-css:4:95213d4222ebb7ce35fed852ce73ffa1 */
+</style><style type="text/css" media="all">.mw-collapsible-toggle{float:right} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+
+/* cache key: wiki13:resourceloader:filter:minify-css:4:4250852ed2349a0d4d0fc6509a3e7d4c */
+</style><style type="text/css" media="all">.js-messagebox{margin:1em 5%;padding:0.5em 2.5%;border:1px solid #ccc;background-color:#fcfcfc;font-size:0.8em}.js-messagebox .js-messagebox-group{margin:1px;padding:0.5em 2.5%;border-bottom:1px solid #ddd}.js-messagebox .js-messagebox-group:last-child{border-bottom:thin none transparent}
+
+/* cache key: wiki13:resourceloader:filter:minify-css:4:8b08bdc91c52a9ffba396dccfb5b473c */
+</style><style type="text/css" media="all">#drafts-list-box{margin-bottom:10px;padding-left:10px;padding-right:10px;border:red solid 1px}#drafts-list-table{margin-left:-5px;margin-right:-5px}#drafts-list-table td,#drafts-list-table th{text-align:left}.rtl #drafts-list-table td,.rtl #drafts-list-table th{text-align:right}
+
+/* cache key: wiki13:resourceloader:filter:minify-css:4:4a12383ab0b3a1a5c752c720c34cd845 */
+</style><meta name="ResourceLoaderDynamicStyles" content="">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: wiki13:resourceloader:filter:minify-css:4:c88e2bcd56513749bec09a7e29cb3ffa */
+</style>
+        <!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?303"></script>
+        <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+        <script>if(window.mw){
+	mw.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010)", "wgTitle": "Apache Hadoop (Владимир Климонтович на ADD-2010)", "wgCurRevisionId": 32403, "wgArticleId": 4188, "wgIsArticle": true, "wgAction": "view", "wgUserName": null, "wgUserGroups": ["*"], "wgCategories": ["ADD-2010", "Параллельное программирование (доклады)", "Доклад со стенограммой", "NOSQL (доклады)"], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": [], "wgSearchNamespaces": [0, 2, 6, 12, 14], "wgWikiEditorEnabledModules": {"toolbar": true, "dialogs": true, "hidesig": true, "templateEditor": false, "templates": false, "preview": true, "previewDialog": false, "publish": false, "toc": false}, "wgSVGEditEditor": "http://svg-edit.googlecode.com/svn/trunk/editor/svg-editor.html", "wgCategoryTreePageCategoryOptions": "{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}
+</script>
+        <script type="text/javascript" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/wikibits.js"><!-- wikibits js --></script>
+        <!-- Head Scripts -->
+<script src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/load.php"></script><script src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/load(1).php"></script>
+<script>if(window.mw){
+	mw.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010)", "wgTitle": "Apache Hadoop (Владимир Климонтович на ADD-2010)", "wgCurRevisionId": 32403, "wgArticleId": 4188, "wgIsArticle": true, "wgAction": "view", "wgUserName": null, "wgUserGroups": ["*"], "wgCategories": ["ADD-2010", "Параллельное программирование (доклады)", "Доклад со стенограммой", "NOSQL (доклады)"], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": [], "wgSearchNamespaces": [0, 2, 6, 12, 14], "wgWikiEditorEnabledModules": {"toolbar": true, "dialogs": true, "hidesig": true, "templateEditor": false, "templates": false, "preview": true, "previewDialog": false, "publish": false, "toc": false}, "wgSVGEditEditor": "http://svg-edit.googlecode.com/svn/trunk/editor/svg-editor.html", "wgCategoryTreePageCategoryOptions": "{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}
+</script><script>if(window.mw){
+	mw.loader.load(["LikeCatlinks", "PopupWhatlinkshere", "mediawiki.page.startup"]);
+}
+</script><script type="text/javascript" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/load(2).php"></script><style type="text/css">/*<![CDATA[*/
+.source-sql {line-height: normal;}
+.source-sql li, .source-sql pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for sql
+ * CSS class: source-sql, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.sql.source-sql .de1, .sql.source-sql .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.sql.source-sql  {font-family:monospace;}
+.sql.source-sql .imp {font-weight: bold; color: red;}
+.sql.source-sql li, .sql.source-sql .li1 {font-weight: normal; vertical-align:top;}
+.sql.source-sql .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.sql.source-sql .li2 {font-weight: bold; vertical-align:top;}
+.sql.source-sql .kw1 {color: #993333; font-weight: bold;}
+.sql.source-sql .co1 {color: #808080; font-style: italic;}
+.sql.source-sql .coMULTI {color: #808080; font-style: italic;}
+.sql.source-sql .es0 {color: #000099; font-weight: bold;}
+.sql.source-sql .br0 {color: #66cc66;}
+.sql.source-sql .sy0 {color: #66cc66;}
+.sql.source-sql .st0 {color: #ff0000;}
+.sql.source-sql .nu0 {color: #cc66cc;}
+.sql.source-sql .ln-xtra, .sql.source-sql li.ln-xtra, .sql.source-sql div.ln-xtra {background-color: #ffc;}
+.sql.source-sql span.xtra { display:block; }
+
+/*]]>*/
+</style>		<style type="text/css">
+		li#pt-openidlogin {
+		  background: url(/extensions/OpenID/skin/icons/openid-inputicon.png) top left no-repeat;
+		  padding-left: 20px;
+		  text-transform: none;
+		}
+		</style>
+        <script type="text/javascript" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/index.php"><!-- site js --></script>
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/main.js"></script><script type="text/javascript" charset="UTF-8" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/element_main.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Apache_Hadoop_Владимир_Климонтович_на_ADD-2010 action-view skin-custisru">
+
+<table class="cen header screenonly">
+<tbody><tr>
+ <td class="header_background_left" rowspan="2">
+  <table class="cen">
+   <tbody><tr>
+    <td width="100%"><a href="http://lib.custis.ru/"><img align="top" title="Go to the main page [z]" accesskey="z" height="77" width="210" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/header_logo.png"></a></td>
+    <td><img alt="" align="top" height="77" width="10" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/header_shadow_left.gif"></td>
+   </tr>
+  </tbody></table>
+ </td>
+ <td class="header_right" width="82%">
+  <div class="portlet" id="p-personal">
+    <h5><font><font>Personal tools</font></font></h5>
+    <div class="pBody">
+        <ul>
+              <li id="pt-login"><a href="http://lib.custis.ru/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:UserLogin&returnto=Apache+Hadoop+%28%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80+%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87+%D0%BD%D0%B0+ADD-2010%29" title="Here you can log in, but this is optional.  [O]" accesskey="o"><font><font>In / create account</font></font></a></li>
+              <li id="pt-openidlogin"><a href="http://lib.custis.ru/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:OpenIDLogin&returnto=Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)"><font><font>Log in / create account with OpenID</font></font></a></li>
+          </ul>
+    </div>
+  </div>
+ </td>
+ <td class="ar" rowspan="2"><img alt="" height="77" width="17" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/header_shadow_right.gif"></td>
+</tr>
+<tr>
+ <td class="header_bottom_right vb" width="82%">
+  <table>
+   <tbody><tr>
+    <td class="shadow_text"></td>
+    <td class="vb">
+     <div id="p-cactions" class="portlet">
+        <h5><font><font>Views</font></font></h5>
+        <div class="pBody">
+            <ul>
+     
+                 <li id="ca-nstab-main" class="selected"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)" title="Article content [c]" accesskey="c"><font><font>Article</font></font></a></li>
+                 <li id="ca-talk" class="new"><a href="http://lib.custis.ru/%D0%9E%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)" title="Discussion of the content page [t]" accesskey="t"><font><font>Discussion</font></font></a></li>
+                 <li id="ca-viewsource"><a href="http://lib.custis.ru/index.php?title=Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)&action=edit" title="This page has been protected from editing, but you can view and copy the source code [e]" accesskey="e"><font><font>Review</font></font></a></li>
+                 <li id="ca-history"><a href="http://lib.custis.ru/index.php?title=Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)&action=history" title="Change History page [h]" accesskey="h"><font><font>history</font></font></a></li>
+                 <li id="ca-purge"><a href="http://lib.custis.ru/index.php?title=Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)&action=purge" title="Update article to reset the cache ..."><font><font>Update</font></font></a></li>            </ul>
+        </div>
+     </div>
+     <script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+    </td>
+   </tr>
+  </tbody></table>
+ </td>
+</tr>
+</tbody></table>
+
+<table class="printblock">
+ <tbody><tr>
+  <td width="18%" class="screenonly">
+   <table class="cen">
+    <tbody><tr>
+     <td><img class="iefix1px" alt="" height="56" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/menu_top_left.gif"></td>
+     <td class="menu_top ar" width="100%"><img class="iefix1px" alt="" height="56" width="10" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/menu_top_right.gif"></td>
+    </tr>
+      <tr>
+     <td class="menu_left_background"></td>
+     <td class="menu_level_1 vb"><img alt="" height="12" width="4" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/ic_pass.gif"><span class="menu_level_1"><font><font>CUSTIS</font></font></span></td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://www.custis.ru/"><font><font>Website CUSTIS →</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://www.custis.ru/#about/vacancies/"><font><font>Jobs</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://team.custis.ru/"><font><font>Team Blog</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://lib.custis.ru/%D0%91%D0%BB%D0%BE%D0%B3:%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F"><font><font>Archive of events</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://lib.custis.ru/%D0%91%D0%BB%D0%BE%D0%B3:%D0%9F%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8"><font><font>Publications</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+  <tr>
+     <td class="menu_left_background"></td>
+     <td class="menu_level_1 vb"><img alt="" height="12" width="4" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/ic_pass.gif"><span class="menu_level_1"><font><font>Navigation</font></font></span></td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://lib.custis.ru/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" title="Go to the main page [z]" accesskey="z"><font><font>Homepage</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://lib.custis.ru/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:RecentChanges" title="List of recent changes [r]" accesskey="r"><font><font>Recent Changes</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://lib.custis.ru/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Random" title="View random page [x]" accesskey="x"><font><font>Random article</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://lib.custis.ru/%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0:%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5" title="Reference project «CustisWiki»"><font><font>Reference</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+  <tr>
+     <td class="menu_left_background"></td>
+     <td class="menu_level_1 vb"><img alt="" height="12" width="4" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/ic_pass.gif"><span class="menu_level_1"><font><font>Search</font></font></span></td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="custom_box"><div id="searchBody" class="pBody">
+    <form action="http://lib.custis.ru/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Search" id="searchform"><div>
+        <input id="searchInput" name="search" type="text" title="Search for the word [alt-f]" accesskey="f" value="" autocomplete="off">
+        <font><font><input type="submit" name="go" class="searchButton" id="searchGoButton" value="Go " title="Go to the page that has exactly the name"></font></font>&nbsp;<font><font><input type="submit" name="fulltext" class="searchButton" id="mw-searchButton" value="Find" title="Find pages that contain the specified text"></font></font>
+    </div></form>
+</div>
+</td>
+    </tr>
+    <tr>
+     <td class="menu_left_background"></td>
+     <td class="menu_separator"></td>
+    </tr>
+  <tr>
+     <td class="menu_left_background"></td>
+     <td class="menu_level_1 vb"><img alt="" height="12" width="4" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/ic_pass.gif"><span class="menu_level_1"><font><font>Tools</font></font></span></td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://lib.custis.ru/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:WhatLinksHere/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)" title="List of all pages that link to this page [j]" accesskey="j"><font><font>Links here</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://lib.custis.ru/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:RecentChangesLinked/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)" title="Recent changes to the wiki on this page links to [k]" accesskey="k"><font><font>Related changes</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://lib.custis.ru/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:SpecialPages" title="List of service pages [q]" accesskey="q"><font><font>Special pages</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+    <tr>
+     <td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+     <td width="100%" class="menu_normal_text">
+      <a class="m_uplink" href="http://lib.custis.ru/index.php?title=Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)&printable=yes" title="A version of this page Print [p]" accesskey="p"><font><font>Print version</font></font></a>
+     </td>
+    </tr>
+    <tr>
+     <td class="menu_partition_sep"></td>
+     <td class="menu_separator"></td>
+    </tr>
+<tr><td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+<td width="100%" class="menu_normal_text"><a href="http://lib.custis.ru/index.php?title=Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)&useskin=cleanmonobook"><font><font>Pure HTML</font></font></a></td></tr>
+<tr><td class="menu_partition_sep"></td>
+<td class="menu_separator"></td></tr>
+<tr><td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+<td width="100%" class="menu_normal_text"><a href="http://lib.custis.ru/index.php?title=Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)&action=export2word"><font><font>→ M $ WORD</font></font></a></td></tr>
+<tr><td class="menu_partition_sep"></td>
+<td class="menu_separator"></td></tr>
+<tr><td width="20" class="menu_partition_sep"><img alt="" height="1" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+<td width="100%" class="menu_normal_text"><a href="http://lib.custis.ru/index.php?title=Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)&action=export2oo"><font><font>→ OOffice</font></font></a></td></tr>
+<tr><td class="menu_partition_sep"></td>
+<td class="menu_separator"></td></tr>
+   </tbody></table>
+   <img alt="" height="48" width="5" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/menu_bottom_shadow.gif">
+  </td>
+  <td rowspan="2" valign="top" class="info_text" width="82%" id="content"><div id="mw-js-message" class="js-messagebox" style="display: none; "></div>
+   <a name="top" id="top"></a>
+   <div class="headline">
+    <img width="53" height="56" alt="" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/icon_contact.gif" class="screenonly">
+    <h1 id="firstHeading" class="firstHeading"><font><font>Apache Hadoop (Vladimir Klimontovich on ADD-2010)</font></font></h1>
+   </div>
+      <div id="bodyContent">
+    <h3 id="siteSub"><font><font>From CustisWiki</font></font></h3>
+    <div id="contentSub"></div>
+            <div id="jump-to-nav"><font><font>Jump to: </font></font><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#column-one"><font><font>navigation</font></font></a><font><font> , </font></font><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#searchInput"><font><font>search</font></font></a></div>    <!-- start content -->
+    <div id="catlinks-top" class="mw18"><div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://lib.custis.ru/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Categories" title="Inside: Categories"><font><font>Categories</font></font></a><font><font> :</font></font><ul><li><a href="http://lib.custis.ru/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:ADD-2010" title="Category: ADD-2010"><font><font>ADD-2010</font></font></a></li><li><a href="http://lib.custis.ru/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%9F%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_(%D0%B4%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B)" title="Category: Parallel Programming (Reports)"><font><font>Parallel Programming (Reports)</font></font></a></li><li><a href="http://lib.custis.ru/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%94%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4_%D1%81%D0%BE_%D1%81%D1%82%D0%B5%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BE%D0%B9" title="Category: Report of the transcript"><font><font>Report of the transcript</font></font></a></li><li><a href="http://lib.custis.ru/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:NOSQL_(%D0%B4%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B)" title="Category: NOSQL (reports)"><font><font>NOSQL (reports)</font></font></a></li></ul></div></div></div><div lang="ru" dir="ltr" class="mw-content-ltr"><div style="float: right; background-color: #ccff99; margin: 0 0 0.5em 0.5em; padding: 5px 8px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; font-size: 85%; text-align: center;"><font><font>Short Link: </font></font><a href="http://lib.custis.ru/122-Hadoop-add2010"><font><font>122-Hadoop-add2010</font></font></a></div><div id="popup_whatlinkshere_ajax" class="like-cl like-cl-outer"><a href="javascript:void(0)" onclick="efPWHLShow(this);"><font><font>Links here (11) →</font></font></a></div><div id="subpagelist_ajax" class="like-cl like-cl-outer"><a href="javascript:void(0)" onclick="sajax_do_call(&#39;efAjaxSubpageList&#39;, [wgPageName], function(request){ if (request.status != 200) return; var s = document.getElementById(&#39;subpagelist_ajax&#39;); s.innerHTML = request.responseText; })"><font><font>Subpages (1) →</font></font></a></div><div style="clear:both;height:1px"></div><table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2><font><font>Content</font></font></h2><span class="toctoggle"><font><font>&nbsp;[ </font></font><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#" class="internal" id="togglelink"><font><font>remove</font></font></a><font><font> ]&nbsp;</font></font></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.90.D0.BD.D0.BD.D0.BE.D1.82.D0.B0.D1.86.D0.B8.D1.8F"><span class="tocnumber"><font><font>1 </font></font></span> <span class="toctext"><font><font>Abstract</font></font></span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.92.D0.B8.D0.B4.D0.B5.D0.BE"><span class="tocnumber"><font><font>2 </font></font></span> <span class="toctext"><font><font>Video</font></font></span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.9F.D0.BE.D0.B4.D0.BA.D0.B0.D1.81.D1.82"><span class="tocnumber"><font><font>3 </font></font></span> <span class="toctext"><font><font>Podcast</font></font></span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.9F.D1.80.D0.B5.D0.B7.D0.B5.D0.BD.D1.82.D0.B0.D1.86.D0.B8.D1.8F"><span class="tocnumber"><font><font>4 </font></font></span> <span class="toctext"><font><font>Presentation</font></font></span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.A1.D1.82.D0.B5.D0.BD.D0.BE.D0.B3.D1.80.D0.B0.D0.BC.D0.BC.D0.B0"><span class="tocnumber"><font><font>5 </font></font></span> <span class="toctext"><font><font>Transcript</font></font></span></a>
+<ul>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#Summary"><span class="tocnumber"><font><font>5.1 </font></font></span> <span class="toctext"><font><font>Summary</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.9E.D0.B1.D1.8A.D0.B5.D0.BC.D1.8B_.D0.B4.D0.B0.D0.BD.D0.BD.D1.8B.D1.85"><span class="tocnumber"><font><font>5.2 </font></font></span> <span class="toctext"><font><font>Volumes of Data</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#DFS.2FMapReduce"><span class="tocnumber"><font><font>5.3 </font></font></span> <span class="toctext"><font><font>DFS / MapReduce</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#Distributed_FS"><span class="tocnumber"><font><font>5.4 </font></font></span> <span class="toctext"><font><font>Distributed FS</font></font></span></a>
+<ul>
+<li class="toclevel-3"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#DFS:_.D0.B0.D1.80.D1.85.D0.B8.D1.82.D0.B5.D0.BA.D1.82.D1.83.D1.80.D0.B0"><span class="tocnumber"><font><font>5.4.1 </font></font></span> <span class="toctext"><font><font>DFS: architecture</font></font></span></a></li>
+<li class="toclevel-3"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.9A.D0.BE.D0.BD.D1.84.D0.B8.D0.B3.D1.83.D1.80.D0.B0.D1.86.D0.B8.D1.8F"><span class="tocnumber"><font><font>5.4.2 </font></font></span> <span class="toctext"><font><font>Configuration</font></font></span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#MapReduce"><span class="tocnumber"><font><font>5.5 </font></font></span> <span class="toctext"><font><font>MapReduce</font></font></span></a>
+<ul>
+<li class="toclevel-3"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80"><span class="tocnumber"><font><font>5.5.1 </font></font></span> <span class="toctext"><font><font>Example</font></font></span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.9F.D0.B0.D1.80.D0.B0.D0.BB.D0.BB.D0.B5.D0.BB.D1.8C.D0.BD.D0.BE.D1.81.D1.82.D1.8C"><span class="tocnumber"><font><font>5.6 </font></font></span> <span class="toctext"><font><font>Parallelism</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#Apache_Hadoop"><span class="tocnumber"><font><font>5.7 </font></font></span> <span class="toctext"><font><font>Apache Hadoop</font></font></span></a>
+<ul>
+<li class="toclevel-3"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#M.D0.BE.D0.B4.D1.83.D0.BB.D0.B8_Hadoop"><span class="tocnumber"><font><font>5.7.1 </font></font></span> <span class="toctext"><font><font>Modul Hadoop</font></font></span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#Yahoo:_web_graph"><span class="tocnumber"><font><font>5.8 </font></font></span> <span class="toctext"><font><font>Yahoo: Web graph</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#Last.fm"><span class="tocnumber"><font><font>5.9 </font></font></span> <span class="toctext"><font><font>Last.fm</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#SQL"><span class="tocnumber"><font><font>5.10 </font></font></span> <span class="toctext"><font><font>SQL</font></font></span></a>
+<ul>
+<li class="toclevel-3"><a href="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki.html"><span class="tocnumber"><font><font class="">5.10.1 </font></font></span> <span class="toctext"><font><font class="">SQL: Principle</font></font></span></a></li>
+<li class="toclevel-3"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#SQL:_partitioning"><span class="tocnumber"><font><font>5.10.2 </font></font></span> <span class="toctext"><font><font>SQL: partitioning</font></font></span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#Apache_Hive"><span class="tocnumber"><font><font>5.11 </font></font></span> <span class="toctext"><font><font>Apache Hive</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#Apache_Pig"><span class="tocnumber"><font><font>5.12 </font></font></span> <span class="toctext"><font><font>Apache Pig</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.9E.D0.B1.D0.BB.D0.B0.D1.81.D1.82.D0.B8_.D0.BF.D1.80.D0.B8.D0.BC.D0.B5.D0.BD.D0.B5.D0.BD.D0.B8.D1.8F"><span class="tocnumber"><font><font>5.13 </font></font></span> <span class="toctext"><font><font>Applications</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.94.D0.BE.D1.81.D1.82.D0.BE.D0.B8.D0.BD.D1.81.D1.82.D0.B2.D0.B0"><span class="tocnumber"><font><font>5.14 </font></font></span> <span class="toctext"><font><font>Pros</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.9D.D0.B5.D0.B4.D0.BE.D1.81.D1.82.D0.B0.D1.82.D0.BA.D0.B8"><span class="tocnumber"><font><font>5.15 </font></font></span> <span class="toctext"><font><font>Shortcomings</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#Real-Time.3F"><span class="tocnumber"><font><font>5.16 </font></font></span> <span class="toctext"><font><font>Real-Time?</font></font></span></a></li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#Column_oriented_databases"><span class="tocnumber"><font><font>5.17 </font></font></span> <span class="toctext"><font><font>Column oriented databases</font></font></span></a>
+<ul>
+<li class="toclevel-3"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#BigTable"><span class="tocnumber"><font><font>5.17.1 </font></font></span> <span class="toctext"><font><font>BigTable</font></font></span></a></li>
+<li class="toclevel-3"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#BigTable:_.D0.BF.D1.80.D0.B8.D0.BC.D0.B5.D1.80"><span class="tocnumber"><font><font>5.17.2 </font></font></span> <span class="toctext"><font><font>BigTable: Example</font></font></span></a></li>
+<li class="toclevel-3"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#BigTable:_.D0.B4.D0.B8.D0.B7.D0.B0.D0.B9.D0.BD"><span class="tocnumber"><font><font>5.17.3 </font></font></span> <span class="toctext"><font><font>BigTable: design</font></font></span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#HBase"><span class="tocnumber"><font><font>5.18 </font></font></span> <span class="toctext"><font><font>HBase</font></font></span></a>
+<ul>
+<li class="toclevel-3"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#HBase:_.D0.BF.D1.80.D0.BE.D0.B8.D0.B7.D0.B2.D0.BE.D0.B4.D0.B8.D1.82.D0.B5.D0.BB.D1.8C.D0.BD.D0.BE.D1.81.D1.82.D1.8C"><span class="tocnumber"><font><font>5.18.1 </font></font></span> <span class="toctext"><font><font>HBase: performance</font></font></span></a></li>
+<li class="toclevel-3"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#HBase:_.D0.BD.D0.B5.D0.B4.D0.BE.D1.81.D1.82.D0.B0.D1.82.D0.BA.D0.B8"><span class="tocnumber"><font><font>5.18.2 </font></font></span> <span class="toctext"><font><font>HBase: Cons</font></font></span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#Hadoop:_.D0.BE.D0.B1.D0.BB.D0.B0.D1.81.D1.82.D0.B8_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D1.8F"><span class="tocnumber"><font><font>5.19 </font></font></span> <span class="toctext"><font><font>Hadoop: the use of</font></font></span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.92.D0.BE.D0.BF.D1.80.D0.BE.D1.81.D1.8B"><span class="tocnumber"><font><font>6 </font></font></span> <span class="toctext"><font><font>Questions</font></font></span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D1.8F"><span class="tocnumber"><font><font>7 </font></font></span> <span class="toctext"><font><font>Notes</font></font></span></a></li>
+</ul>
+</td></tr></tbody></table>
+<h2> <span class="mw-headline" id=".D0.90.D0.BD.D0.BD.D0.BE.D1.82.D0.B0.D1.86.D0.B8.D1.8F"><font><font> Abstract </font></font></span></h2>
+<blockquote>
+<p><a rel="nofollow" class="external text" href="http://klimontovich.moikrug.ru/"><font><font>Vladimir Klimontovich</font></font></a><font><font> shared his experience of handling very large volumes of data, and to do so NOSQL-approaches, in particular </font></font><tt><font><font>Apache Hadoop</font></font></tt><font><font> .
+</font></font></p><p><br><font><font>Background.
+</font></font></p><ul><li><font><font> Why is the problem of processing large amounts of data is becoming increasingly important (for example the amount of data growth in different areas).
+</font></font></li><li><font><font>Article from Google about paradigm </font></font><tt><font><font>MapReduce</font></font></tt><font><font> . </font><font>Brief description paradigm.
+</font></font></li><li><font><font>Brief description of related areas ( </font></font><i><font><font>distributed file system</font></font></i><font><font> , </font></font><i><font><font>bigtable</font></font></i><font><font> -like Storage).
+</font></font></li><li><font><font>History and a brief description of the platform </font></font><tt><font><font>Apache Hadoop</font></font></tt><font><font> .
+</font></font></li></ul>
+<p><font><font>Examples of use.
+</font></font></p><ul><li><font><font>Using the platform </font></font><tt><font><font>hadoop</font></font></tt><font><font> in three individual areas: </font></font><tt><font><font>Last.fm</font></font></tt><font><font> (build </font></font><i><font><font>charts</font></font></i><font><font> ), in </font></font><i><font><font>Online Advertising-'</font></font></i><font><font> e (building statistics) to </font></font><tt><font><font>Yahoo</font></font></tt><font><font> (search index build).
+</font></font></li><li><font><font>Description of the traditional approach ( </font></font><tt><font><font>SQL</font></font></tt><font><font> database) and an approach using </font></font><tt><font><font>Hadoop</font></font></tt><font><font> for each vysheoboznachennyh problems. </font><font>Advantages and disadvantages of </font></font><tt><font><font>SQL / Hadoop</font></font></tt><font><font> approach
+</font></font></li><li><font><font>The general principle of broadcast some subtype </font></font><tt><font><font>SQL</font></font></tt><font><font> queries in </font></font><tt><font><font>MapReduce job</font></font></tt><font><font> 's.
+</font></font></li></ul>
+<p><font><font>Platform built on top of </font></font><tt><font><font>Hadoop</font></font></tt><font><font> .
+</font></font></p><ul><li><font><font>Brief description of </font></font><tt><font><font>ETL-framework</font></font></tt><font><font> 'and </font></font><tt><font><font>Hive</font></font></tt><font><font> and </font></font><tt><font><font>Pig</font></font></tt><font><font> , constructed based on </font></font><tt><font><font>Hadoop</font></font></tt><font><font> .
+</font></font></li><li><font><font>Examples of use (for example, </font></font><tt><font><font>facebook.com</font></font></tt><font><font> and </font></font><tt><font><font>Yahoo</font></font></tt><font><font> ); comparison with standard </font></font><tt><font><font>SQL</font></font></tt><font><font> approach
+</font></font></li></ul>
+<p><font><font>Problems with </font></font><i><font><font>real-time</font></font></i><font><font> access to data using Apache Hadoop.
+</font></font></p><ul><li><font><font>Describe cases where </font></font><i><font><font>real-time</font></font></i><font><font> is needed, and when not.
+</font></font></li><li><font><font>Description solve simple problems with </font></font><i><font><font>Realtime</font></font></i><font><font> : memory caching ( </font></font><tt><font><font>memcached</font></font></tt><font><font> ), symbiosis with </font></font><tt><font><font>SQL</font></font></tt>
+</li><li><font><font>Symbiosis with </font></font><tt><font><font>bigtable</font></font></tt><font><font> -like database for example </font></font><tt><font><font>HBase</font></font></tt><font><font> . </font><font>Brief description of </font></font><tt><font><font>HBase</font></font></tt><font><font> .
+</font></font></li></ul>
+<p><tt><font><font>Hadoop</font></font></tt><font><font> as a trend.
+</font></font></p><ul><li><font><font> Overview of the technical and business problems using Hadoop
+</font></font></li><li><font><font>Hype around </font></font><tt><font><font>Hadoop</font></font></tt><font><font> and </font></font><tt><font><font>NoSQL</font></font></tt><font><font> approach. </font><font>Description cases where </font></font><tt><font><font>SQL</font></font></tt><font><font> is convenient.
+</font></font></li></ul>
+</blockquote>
+<p><br></p><h2> <span class="mw-headline" id=".D0.92.D0.B8.D0.B4.D0.B5.D0.BE"><font><font> Video </font></font></span></h2>
+<center>
+<div class="paragraph"><iframe src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/11910267.html" width="720" height="405" frameborder="0"></iframe>
+<div style="font-size:75%">
+<p><font><font>Video in HD-quality, see the full screen. 
+</font></font></p><p><font><font>HTML-code incorporating </font></font><span style="font-size:40%;font-family:monospace;background-color:#ffffaa"><font><font>&lt;iframe src="http://player.vimeo.com/video/11910267?byline=0&amp;portrait=0" width="720" height="405" frameborder="0"&gt; &lt;/ iframe&gt;
+</font></font></span>
+</p></div>
+<div style="font-size:50%;">
+<p><font><font>→ download page video on vimeo, button «Download»
+</font></font></p></div>
+</div></center>
+<h2> <span class="mw-headline" id=".D0.9F.D0.BE.D0.B4.D0.BA.D0.B0.D1.81.D1.82"><font><font> Podcast </font></font></span></h2>
+<p>
+</p><center>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" id="slide" align="middle" width="450" height="53">
+<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="http://file.podfm.ru/player.swf">
+<param name="menu" value="false">
+<param value="transparent" name="WMode">
+<param name="quality" value="high">
+<param name="FlashVars" value="xmlurl=http://belonesox.podfm.ru/addconf/21/data.xml">
+<embed src="http://file.podfm.ru/player.swf" menu="false" quality="high" name="slide" flashvars="xmlurl=http://belonesox.podfm.ru/addconf/21/data.xml" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" align="middle" width="450" height="53">
+</object>
+</center>
+
+<p></p><h2> <span class="mw-headline" id=".D0.9F.D1.80.D0.B5.D0.B7.D0.B5.D0.BD.D1.82.D0.B0.D1.86.D0.B8.D1.8F"><font><font> Presentation </font></font></span></h2>
+<div class="floatleft"><a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=1" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0001-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=2" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0002-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=3" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0003-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=4" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0004-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=5" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0005-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=6" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0006-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=7" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0007-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=8" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0008-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=9" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0009-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=10" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0010-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=11" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0011-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=12" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0012-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=13" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0013-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=14" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0014-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=15" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0015-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=16" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0016-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=17" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0017-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=18" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0018-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=19" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0019-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=20" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0020-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=21" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0021-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=22" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0022-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=23" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0023-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=24" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0024-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=25" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0025-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=26" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0026-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=27" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0027-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=28" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0028-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=29" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0029-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=30" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0030-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=31" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0031-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=32" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0032-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=33" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0033-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=34" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0034-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> <a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=35" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0035-300px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="300" height="169"></a> </div>
+<h2> <span class="mw-headline" id=".D0.A1.D1.82.D0.B5.D0.BD.D0.BE.D0.B3.D1.80.D0.B0.D0.BC.D0.BC.D0.B0"><font><font> Verbatim report </font></font></span></h2>
+<blockquote>
+<p><font><font>The transcript of the video recorded by </font></font><a href="http://lib.custis.ru/%D0%A3%D1%87%D0%B0%D1%81%D1%82%D0%BD%D0%B8%D0%BA:StasFomin" title="Member: StasFomin"><font><font>Stas Fomin</font></font></a><font><font> .
+</font></font></p></blockquote>
+<h3> <span class="mw-headline" id="Summary"><font><font> Summary </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>Summary
+</font></font></p><ul><li><font><font> Relevance of processing large amounts of data
+</font></font></li><li> <i><font><font>Distributed File System</font></font></i><font><font> , </font></font><tt><font><font>MapReduce</font></font></tt> 
+</li><li> <tt><font><font>Apache Hadoop</font></font></tt>
+</li><li><font><font>Related Technologies: </font></font><tt><font><font>Pig</font></font></tt><font><font> , </font></font><tt><font><font>Apache Hive</font></font></tt>
+</li><li> <i><font><font>Column Oriented Database</font></font></i> 
+</li></ul>
+</div>
+<p><font><font>Actually, what I mean is you tell today. </font><font>So, can not see anything, so I have now to tell more than watching. </font><font>Lately, in the last, say, ten years in IT as a whole, there was a problem processing large amounts of data. </font><font>In the first place, it has become on the likes of Google, which is looking for, and other companies.
+</font></font></p><p><font><font>In general, today I will discuss how the problem is solved. </font><font>How is it solved as a whole, which was invented by Google, in 2003-2004, and also about the open-source implementation of these ways of processing and storing large amounts of data, called Apache Hadoop.
+</font></font></p><p><font><font>And also if we have time, I'll tell you about a little </font></font><i><font><font>column-oriented databases</font></font></i><font><font> , this database, which are arranged a little differently than relational, and also about the implementation.
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h3> <span class="mw-headline" id=".D0.9E.D0.B1.D1.8A.D0.B5.D0.BC.D1.8B_.D0.B4.D0.B0.D0.BD.D0.BD.D1.8B.D1.85"><font><font> Amounts of data </font></font></span></h3>
+<div class="floatright"><a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=3" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0003-480px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="480" height="270"></a></div>
+<p><font><font>So that you were, what was going on, what kind of data volumes. </font><font>For example, Facebook, everyone knows probably all have there profiles, the company Facebook a day by a 40 terabytes of new data - photos, posts, comments, again, simply log file - page impressions and stuff.
+</font></font></p><p><font><font>That we continue - again the New York Stock Exchange, one terabyte of transactions per day, transaction data, buying and selling stocks and other.
+</font></font></p><p><font><font>The Large Hadron Collider is somewhere forty terabytes of experimental data in the day, the information about the speed and position of particles and so on.
+</font></font></p><p><font><font>And for example, that you were that happens in small companies - the company ContextWeb a small American company, which in fact I'm working on that deals with online advertayzingom quite a small company with a very small percentage of the market, however it is 115 gigabytes of logs display content on the day. </font><font>And it is not just text files, it is 115 gigabytes of compressed data, ie </font><font>actually probably much more data.
+</font></font></p><div style="clear:both"></div>
+<h3> <span class="mw-headline" id="DFS.2FMapReduce"><font><font> DFS / MapReduce </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><tt><font><font>DFS / MapReduce</font></font></tt>
+</p><dl><dt><font><font>Problem 1</font></font></dt><dd><font><font> where to store the data?
+</font></font></dd><dt><font><font>Issue 2</font></font></dt><dd><font><font> how to handle?
+</font></font></dd><dt><font><font>October 2003</font></font></dt><dd><font><font>emergence of </font></font><tt><font><font>Google File System</font></font></tt> 
+</dd><dt><font><font>December 2004</font></font></dt><dd><font><font>emergence of </font></font><tt><font><font>MapReduce</font></font></tt> 
+</dd></dl>
+</div>
+<p><font><font>The question arises, what actually do with them? </font><font>Because you have to handle them somehow. </font><font>By themselves, such amounts of data, they are not interesting and quite useless.
+</font></font></p><p><font><font>One way to handle such volumes of data was coined by Google. </font><font>In 2003, Google released a fairly well-known article about </font></font><i><font><font>distributed file Systems</font></font></i><font><font> , as they shall keep within the data and indexes, user information and so on.
+</font></font></p><p><font><font>In 2004 again the company Google has released an article that describes the treatment paradigm of this amount of data, which is called MapReduce.
+</font></font></p><p><font><font>Actually just about it I'm going to tell as it is arranged as a whole, and how it is implemented in the platform Apache Hadoop.
+</font></font></p><div style="clear:both"></div>
+<h3> <span class="mw-headline" id="Distributed_FS"><font><font> Distributed FS </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>Requirements for Distributed FS
+</font></font></p><ul><li><font><font> Store files of any size
+</font></font></li><li><font><font> Mild scaling
+</font></font></li><li><font><font> Reliability
+</font></font></li></ul>
+</div>
+<p><i><font><font>Distributed Filesystem</font></font></i><font><font> - what is it anyway? </font><font>What tasks put before Distributed Filesystem?
+</font></font></p><ul><li><font><font> First, it is the storage of large amounts of data - files of any size ...
+</font></font></li><li><font><font> Secondly, it's just transparency, we want to work with this file system as a regular file system - we want to open the files, write something there, close files, and do not think that it's something big and distrubuted.
+</font></font></li><li><font><font>We also want ... another requirement - is scalability. </font><font>We want to store files on the cluster and it is fairly easy to scale. </font><font>For example, we have grown the business twice, has twice as much data, wants no fixed architectural changes, store data more than twice, just by adding twice as many cars.
+</font></font></li><li><font><font>And also reliability. </font><font>Ie </font><font>we have a cluster, say a hundred machines out of order, say, five, it is necessary for us to have passed unnoticed - the files to be available so that we could read and write, but perhaps with a slightly lower performance, but to make it work until these five cars will not notice.
+</font></font></li></ul>
+<div style="clear:both"></div>
+<h4> <span class="mw-headline" id="DFS:_.D0.B0.D1.80.D1.85.D0.B8.D1.82.D0.B5.D0.BA.D1.82.D1.83.D1.80.D0.B0"><font><font> DFS: architecture </font></font></span></h4>
+<p><font><font>Actually, as it is implemented. </font><font>There is a small chart, probably it is not visible, but can be seen as a whole, yes.
+</font></font></p><p><font><font>There is a cluster of machines, which many on which data is stored. </font><font>There is one machine, which is called the </font></font><i><font><font>Master node</font></font></i><font><font> , and which coordinates all.
+</font></font></p><p><font><font>That is stored on the master node? </font><font>The master node simply stored file table. </font><font>The structure of the file system, each file is divided into blocks, to which particular cluster machines, which blocks stored files.
+</font></font></p><p><font><font>How is the writing and reading? </font><font>We want to read any file, we ask the master node which stores blocks such and such a file, it tells us what kind of car are stored concrete blocks, and we have already read directly from the cluster machines.
+</font></font></p><p><font><font>Same with writing, we ask the master node where you want to write, in which specific blocks in which specific machine, he tells us, and we write directly there.
+</font></font></p><p><font><font>And to ensure the reliability of each block is stored in multiple copies on multiple machines. </font><font>This ensures reliability, even if we fail, say, 10% of the machines in the cluster, most likely, we will not lose anything. </font><font>Ie </font><font>yes, we will lose some units, but since these blocks are stored in multiple copies, we can again, and read and write.
+</font></font></p><div class="center"><div class="floatnone"><a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=6" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0006-720px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="720" height="405"></a></div></div>
+<div class="paragraph"><br><div style="clear:both"></div>
+</div><h4> <span class="mw-headline" id=".D0.9A.D0.BE.D0.BD.D1.84.D0.B8.D0.B3.D1.83.D1.80.D0.B0.D1.86.D0.B8.D1.8F"><font><font> Configuration </font></font></span></h4>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>Configuration
+</font></font></p><ul><li> <tt><font><font>40</font></font></tt><font><font> nodes
+</font></font></li><li> <tt><font><font>4Tb/8Gb</font></font></tt><font><font> RAM/4x Xeon per node 
+</font></font></li><li> <tt><font><font>40 * 4/2 ≈ 80Tb</font></font></tt><font><font> total storage
+</font></font></li></ul>
+</div>
+<p><font><font>A typical configuration, which, for example, is used in our company. </font><font>To store large amounts of data, for example, our company is 70 terabytes, which we regularly analyze something with them are going to do it somewhere forty machines, each machine is weak server, if you look at the industry, it's somewhere 16 gigabytes of RAM and 8 gigabytes terabyte disk, no RAID, just a normal drive.
+</font></font></p><p><font><font>Some Intel Xeon, in general, some a cheap server. </font><font>These servers also forty, and it allows you to store such amounts of data, say, hundreds of terabytes. 
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h3> <span class="mw-headline" id="MapReduce"><font><font> MapReduce </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><tt><font><font>MapReduce</font></font></tt>
+</p><dl><dt><font><font>Map</font></font></dt><dd></dd></dl>
+<pre><font><font>input record ⇒ (key, value)
+</font></font></pre><dl><dt><font><font>Reduce</font></font></dt><dd></dd></dl>
+<pre><font><font>(Key, {v1, ..., vn}) ⇒ output record
+</font></font></pre><p><font><font>This paradigm is applicable to a wide range of tasks
+</font></font></p></div>
+<p><font><font>Once all the files are stored on the distributed file system, the question arises how to handle them. </font><font>For this was invented by Google paradigm, called </font></font><i><font><font>MapReduce</font></font></i><font><font> . </font><font>It looks pretty weird. </font><font>I do not know if you can see what is written here? </font><font>Excellent! </font><font>It looks very strange. </font><font>This data processing operation is three.
+</font></font></p><p><font><font>The first operation ... we have some input data, for example, set kakih-nibud input record-s.
+</font></font></p><p><font><font>The first operation, called </font></font><i><font><font>Map</font></font></i><font><font> , which for each input record-in gives us a couple of "key → value." </font><font>Then, in these couples' key → value "grouped, each key, when we process all input records may correspond to multiple values. </font><font>Grouped and are issued on the procedure </font></font><i><font><font>Reduce</font></font></i><font><font> , which receives the key, and accordingly, a set of values ​​and issues already, finally the final result.
+</font></font></p><p><font><font>Thus, we already have a set of some input record-s, for example, this line in the log file, and we have some set of output record-s.
+</font></font></p><p><font><font>It looks rather strange as some highly specialized thing, like something out of functional programming, it is not clear as soon as it can be applied on a broad practice.
+</font></font></p><div style="clear:both"></div>
+<h4> <span class="mw-headline" id=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80"><font><font> Example </font></font></span></h4>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>How to count on browsers (Facebook)
+</font></font></p><dl><dt><font><font>Map</font></font></dt><dd></dd></dl>
+<pre><font><font>log record ⇒ (Browser, 1)
+</font></font></pre><dl><dt><font><font>Reduce</font></font></dt><dd></dd></dl>
+<pre><font><font>(Browser, [1 .. 1]) ⇒ {Browser, sum}
+</font></font></pre></div>
+<p><font><font>In fact, could very well be applied to the broad practice.
+</font></font></p><p><font><font>The simplest example. </font><font>Suppose we have a company Facebook, we have a lot of data .... </font><font>well, just logs show page on Facebook. </font><font>And we need to calculate how the browser who enjoys.
+</font></font></p><p><font><font>This is done using the MapReduce paradigm quite easily.
+</font></font></p><p><font><font>We define operation Map, which is in line access loge defines key-value where the key - it's the browser, and the value - just edinichka.
+</font></font></p><p><font><font>Thereafter, the operation remains to be done Reduce, which is a set of ones and many browsers simply does summation and produces output for each browser amount received.
+</font></font></p><p><font><font>We run this task on a MapReduce cluster, in the beginning with us for many, many log files, in the end we've found so little, in which we have a browser, and accordingly, the number of hits. </font><font>So we know the statistics.
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h3> <span class="mw-headline" id=".D0.9F.D0.B0.D1.80.D0.B0.D0.BB.D0.BB.D0.B5.D0.BB.D1.8C.D0.BD.D0.BE.D1.81.D1.82.D1.8C"><font><font> Parallelism </font></font></span></h3>
+<p><font><font>Why it's good, </font></font><i><font><font>MapReduce</font></font></i><font><font> ?
+</font></font></p><p><font><font>Such are the program, when we ask and ask Map Reduce, they are very good parallel.
+</font></font></p><p><font><font>Suppose we have some Input, it is a large file or set of files, this file can be divided into lots and lots of small pieces, such as the number of machines in the cluster, or more. </font><font>Accordingly, for each piece, we will launch our Map, it can be done in parallel, it all started on a cluster-by quietly evaluated the outcome of each map-and, in somehow sorted and sent to Reduce.
+</font></font></p><p><font><font>Same thing when we have the result of some Map-and a lot of some data, we can again these data broken down into pieces, again run on a cluster, on many machines.
+</font></font></p><p><font><font>Due to this and scalability is achieved. </font><font>When we need to process data twice as fast, we just add twice as many machines, iron now relatively cheap, ie </font><font>without any change in architecture, we get twice the performance.
+</font></font></p><div class="paragraph"><br><div class="center"><div class="floatnone"><a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=10" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0010-720px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="720" height="405"></a></div></div>
+</div><div class="paragraph"><br><div style="clear:both"></div>
+</div><h3> <span class="mw-headline" id="Apache_Hadoop"><font><font> Apache Hadoop </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>Apache Hadoop
+</font></font></p><dl><dt><font><font>2004</font></font></dt><dd> <tt><font><font>Nutch</font></font></tt><font><font> - </font></font><i><font><font>Open Source search Engine</font></font></i>
+</dd><dt><font><font>2006</font></font></dt><dd><dl><dt><tt><font><font>Hadoop</font></font></tt></dt><dd><font><font> separate project
+</font></font></dd><dt><tt><font><font>Yahoo</font></font></tt></dt><dd> <i><font><font>research cluster</font></font></i>
+</dd></dl>
+</dd></dl>
+<dl><dt><font><font>2008</font></font></dt><dd> <tt><font><font>Yahoo WebSearch</font></font></tt><font><font> uses Hadoop. </font><font>Cluster size - 4,000 units
+</font></font></dd><dt><font><font>2009</font></font></dt><dd> <tt><font><font>Hadoop</font></font></tt><font><font> wins the sorting 100Tb (on a cluster of Yahoo). </font></font><tt><font><font>4,000</font></font></tt><font><font> cars, </font></font><tt><font><font>173</font></font></tt><font><font> seconds
+</font></font></dd></dl>
+</div>
+<p><font><font>Apache Hadoop - What is it? </font><font>After Google published these articles, all agreed that it is very convenient paradigm, in particular, there was a project Apache Hadoop. </font><font>They just decided that what is written in these articles about distributed file systems and paradigm MapReduce, to realize how open-source project in Java.
+</font></font></p><p><font><font>It began in 2004, when people want to write an open search engine Nutch, then, sometime in 2005, of Apache Hadoop it stood out as a separate project, as the realization of distributed file system paradigm and MapReduce. </font><font>First it was a small project, not very stable, somewhere in 2006, Yahoo began to try to use Hadoop in their projects, and in 2008-2009, the company launched its Yahoo search rather than search and indexing, which was completely arranged by platform Apache Hadoop, and now Yahoo indexes the Internet using the platform Apache Hadoop. </font><font>The index is stored in a distributed file system, and the construction is done as a series of index Map-Reduce tasks.
+</font></font></p><p><font><font>Yes, again, Hadoop recently won a competition to sort the data, there is a «1TB sort contest», when some people are going faster and trying to sort one terabyte of data. </font><font>Regularly wins a system built on the basis of Apache Hadoop, which runs on a cluster of Yahoo.
+</font></font></p><div style="clear:both"></div>
+<h4> <span class="mw-headline" id="M.D0.BE.D0.B4.D1.83.D0.BB.D0.B8_Hadoop"><font><font> Modul Hadoop  </font></font></span></h4>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<dl><dt><font><font>HDFS</font></font></dt><dd><font><font> Hadoop distributed file system
+</font></font></dd><dt><font><font>MapReduce</font></font></dt><dd></dd></dl>
+</div>
+<p><br><font><font>Hadoop actually consists of two modules. </font><font>This is the implementation paradigm of distributed file system called HDFS, and MapReduce, ie </font><font>implementation of MapReduce-framework.
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h3> <span class="mw-headline" id="Yahoo:_web_graph"><font><font> Yahoo: web graph </font></font></span></h3>
+<p><font><font>Yet here are some examples about how to say, Yahoo, uses Hadoop. </font><font>Yahoo is necessary, for example, to build the graph around the internet. </font><font>As the edges of the pages we will be, if one page is a link to another, it will be an edge in the graph, and this edge is marked text links.
+</font></font></p><p><font><font>For example, as does Yahoo. </font><font>This is also a series of Map-Reduce tasks. </font><font>Yahoo first downloads all the pages that they are interested in indexing, and keeps them, again, in HDFSe. </font><font>To build such a graph, run map-reduce task.
+</font></font></p><p><font><font>So, Map, we simply take the page, and look where it refers, and simply issues such as the key here, Target URL, ie </font><font>which refers to the page, the value → SourceURL, ie </font><font>where we refer and link text.
+</font></font></p><p><font><font>Reduce just gets all these pairs, ie ... </font><font>he gets the key, it TargetURL and set of values, ie </font><font>set SourceURL-s and texts makes some filtering, because we obviously have any spamnyh links, which we do not want to index, and returns it all in a table - TargetURL, SourceURL and text.
+</font></font></p><p><font><font>This table is a graph of all the internet.
+</font></font></p><div class="center"><div class="floatnone"><a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=13" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0013-720px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="720" height="405"></a></div></div>
+<h3> <span class="mw-headline" id="Last.fm"><font><font> Last.fm </font></font></span></h3>
+<div class="center"><div class="floatnone"><a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=14" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0014-720px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="720" height="405"></a></div></div>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>User listens to a song.
+</font></font></p><p><font><font>Information about listening to recorded
+</font></font></p><dl><dd><dl><dt><font><font>HDFS</font></font></dt><dd><font><font> {User, band, track} (line in the log-file)
+</font></font></dd></dl>
+</dd></dl>
+<dl><dt><font><font>Map</font></font></dt><dd></dd></dl>
+<pre><font><font>{UserId, band, track} ⇒ (user_band, 1)
+</font></font></pre><dl><dt><font><font>Reduce</font></font></dt><dd></dd></dl>
+<pre><font><font>(User_band, [1, ..., 1]) ⇒ (user_band, sum)
+</font></font></pre></div>
+<p><br></p><p><font><font>Again Last.fm, probably many use who do not use - a little explain. </font><font>This is such a service, you put your plug in or iTunes-WinAmp-y, it sends to last.fm in real time what you're listening to, then Last.fm does two things - for example, it builds such a beautiful chart-s ie </font><font>the last seven days or three months, which groups you have listened to what your composition, and still makes some last.fm??? </font><font>radio based on the statistics you listened tracks, they will recommend something different, something new and interesting for you, what is purported to be interesting to you. </font><font>If someone noticed these chart-s, they are not updated in real-time, every day, what-if, I do not remember, in general, infrequently.
+</font></font></p><p><font><font>Actually, these chart-s, they are built again on the platform Apache Hadoop. </font><font>When you listen to any song, just written a line in the log file, "with such a user identifier listened to such and such a composition such groups." </font><font>Thereafter, once a day started Map-Reduce task. </font><font>As it looks?
+</font></font></p><ul><li><font><font> Input - this is the log file for these auditions.
+</font></font></li></ul>
+<ul><li><font><font> Map looks like - take a line from this logfile, parse it, and as a key issue a couple of "user and group", and the value - unit.
+</font></font></li></ul>
+<ul><li><font><font> Appropriately then it all goes to Reduce vvide in a pair of "user and group" and the value as a set of units, and is written at the end of the file just as "user-group and number of plays."
+</font></font></li></ul>
+<p><font><font>Then, when you go to your page, this file is parsed, it is related to your account, and here is a chart is drawn, which was on the last slide.
+</font></font></p><p><br></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h3> <span class="mw-headline" id="SQL"><font><font> SQL </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">  <span class="kw1"><font><font>SELECT</font></font></span><font><font> F1 </font></font><span class="sy0"><font><font>,</font></font></span><font><font> F2 </font></font><span class="sy0"><font><font>, </font></font></span> <span class="kw1"><font><font>SUM </font></font></span><span class="br0"><font><font>(</font></font></span><font><font> A </font></font><span class="br0"><font><font>) </font></font></span>
+   <span class="kw1"><font><font>WHERE</font></font></span><font><font> expr
+    </font></font><span class="kw1"><font><font>GROUP </font></font></span> <span class="kw1"><font><font>BY</font></font></span><font><font> F1 </font></font><span class="sy0"><font><font>,</font></font></span><font><font> F2</font></font></pre></div></div>
+<dl><dt><font><font>Map</font></font></dt><dd></dd></dl>
+<pre><font><font>line ⇒ ({f1, f2}, a) if expr
+</font></font></pre><dl><dt><font><font>Reduce</font></font></dt><dd></dd></dl>
+<pre><font><font>({F1, f2}, [a1, ..., an]) ⇒ ({f1, f2}, sum)
+</font></font></pre></div>
+<p><font><font>In fact, a large number of SQL-queries easily parallels ... as easily be expressed as Map-Reduce tasks. </font><font>For example, standard SQL, many write so many enjoy, - a set of fields, f1, f2, programming, where, and any provision of group by.
+</font></font></p><p><font><font>Ie </font><font>is a standard SQL-query that is used in many places, to build reports and some statistics.
+</font></font></p><p><font><font>So, such a request is easy parallels as map-reduce. </font><font>Instead of tables, for example, we have a text file, as a storage area. </font><font>Instead we SQLdvizhka map-reduce. </font><font>Instead we query results text file.
+</font></font></p><p><font><font>Actually, how it works.
+</font></font></p><p><font><font>Map-process. </font><font>As we inputa lines in the log file as output-as we parse this line and issue as the key fields that interest us as a group by, and as the value field, which we aggregate, in this case we believe the amount of a.
+</font></font></p><p><font><font>Reduce gets itself as a key these fields as values, a set of fields, which we aggregate, ie </font><font>some </font></font><object width="95" height="14" type="image/svg+xml" style="vertical-align: middle" data="http://lib.custis.ru/images/generated/amsmath/b/be/bead9ec63d3801e9eddc91e3e2458dcb/amsmath.source-01.svg"><img src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/amsmath.source1.png"></object><font><font>, and simply does summation.
+</font></font></p><p><font><font>Actually all we asked such map-reduce procedure on the cluster and got the results for this query.
+</font></font></p><div style="clear:both"></div>
+<h4> <span class="mw-headline" id="SQL:_.D0.9F.D1.80.D0.B8.D0.BD.D1.86.D0.B8.D0.BF"><font><font> SQL: Principle </font></font></span></h4>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:70%">
+<dl><dt><font><font>GROUP BY</font></font></dt><dd><font><font> as a key in Map
+</font></font></dd><dt><font><font>WHERE</font></font></dt><dd><font><font> evaluated in phase Map
+</font></font></dd><dt><font><font>SUM / AVG
+</font></font></dt></dl>
+<ul><li><font><font> as the value in the Map
+</font></font></li><li><font><font> the final value is calculated Reduce
+</font></font></li></ul>
+<dl><dt><font><font>JOIN</font></font></dt><dd><font><font> Reduce or Map
+</font></font></dd><dt><font><font>HAVING</font></font></dt><dd><font><font> filtering in the final phase of Reduce
+</font></font></dd></dl>
+</div>
+<p><font><font>In fact, many SQL-queries can be parallelized ... can be expressed in terms of map-reduce job.
+</font></font></p><p><font><font>If we have a </font></font><tt><font><font>GROUP BY</font></font></tt><font><font> , the field on which we do </font></font><tt><font><font>GROUP BY</font></font></tt><font><font> we identify as key in the Map.
+</font></font></p><p><tt><font><font>WHERE</font></font></tt><font><font> - it's just in the process of filtering Map-a.
+</font></font></p><p><font><font>Again all amounts, </font></font><tt><font><font>AVG</font></font></tt><font><font> , and other aggregate functions, we believe in step Reduce.
+</font></font></p><p><font><font>Very easy to implement condition </font></font><tt><font><font>HAVING</font></font></tt><font><font> , </font></font><tt><font><font>JOIN</font></font></tt><font><font> , and more.
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h4> <span class="mw-headline" id="SQL:_partitioning"><font><font> SQL: partitioning </font></font></span></h4>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<dl><dt><font><font>WHERE</font></font></dt><dd><font><font>for key fields makes sense to do </font></font><i><font><font>partitioning</font></font></i> 
+</dd></dl>
+<ul><li><font><font> In the analysis of historical data, partitioning is usually done by date
+</font></font></li><li><font><font> Part of the condition WHERE, pertaining to the calculated date to start and limits the amount of input data
+</font></font></li></ul>
+</div>
+<p><font><font>Little about Partitioning. </font><font class="">So when we process information, for example, that in the same last.fm, we build these statistics, we have the data stored in the file, if we run every time map-reduce job-s on all files that is, it will be very long and wrong.
+</font></font></p><p><font><font>Usually used for data partitioning, for example, by date. </font><font>Ie </font><font>we do not store all in one single log file, and divide it by the hour or day. </font><font>When we map-amu our SQL-query on MapReduce-job-s, we first restrict the set of input data as ... actually, file. </font><font>For example, if we are interested in data for the last day, we take the data only for the last day, and then run the map-reduce-joby.
+</font></font></p><p><br></p><p><br></p><div style="clear:both"></div>
+<h3> <span class="mw-headline" id="Apache_Hive"><font><font> Apache Hive </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>Framework based on </font></font><tt><font><font>Apache Hadoop</font></font></tt>
+</p><ul><li><font><font> Translates SQL queries in MapReduce jobs
+</font></font></li><li><font><font> Used as the main R &amp; D tool on Facebook
+</font></font></li></ul>
+</div>
+<p><font><font>Strictly speaking, this principle is implemented in the project Apache Hive, it's such a framework, built on Hadoop.
+</font></font></p><p><font><font>What it looks like from a user perspective? </font><font>We ask some SQL-query, define where we are data, then, this framework expresses this SQL-query in a map-reduce tasks in the form of one or a whole sequence, runs them ... for the user it looks pretty clear.
+</font></font></p><p><font><font>Ie </font><font>we have identified a set of inputs asked SQL-query and output also received, some table.
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h3> <span class="mw-headline" id="Apache_Pig"><font><font> Apache Pig </font></font></span></h3>
+<p><font><font>The second framework is Apache Pig, is the same, roughly, the same task, ie </font><font>transparent way for the creation of map-reduce job-s, without having to write any code.
+</font></font></p><p><font><font>We ask this in here ETL-language sequence that we want, where we want to download something, we will filter the data which columns we are interested in, and all this translates into map-reduce job-s.
+</font></font></p><div class="center"><div class="floatnone"><a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=20" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0020-720px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="720" height="405"></a></div></div>
+<div style="clear:both"></div>
+<h3> <span class="mw-headline" id=".D0.9E.D0.B1.D0.BB.D0.B0.D1.81.D1.82.D0.B8_.D0.BF.D1.80.D0.B8.D0.BC.D0.B5.D0.BD.D0.B5.D0.BD.D0.B8.D1.8F"><font><font> Areas of application </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<dl><dt><font><font>Research</font></font></dt><dd><font><font> as a front end for the people involved in the research data
+</font></font></dd><dt><font><font>Data mining</font></font></dt><dd><font><font> building models for future use Real Time
+</font></font></dd><dt><font><font>Reporting</font></font></dt><dd><font><font> building reports
+</font></font></dd></dl>
+</div>
+<p><font><font>Strictly speaking, the application, all that Hadoop-a and others.
+</font></font></p><p><font><font>Hadoop is very well used to construct statistical models, and in general for data analysis.
+</font></font></p><p><font><font>If we have a lot of log files, we want to find some correlation behaves as a user, depending on which such problems are very well resolved by Hadoopa respectively generating reports, again, the same Last.fm. </font><font>When we have a lot of data, and we need to build some reports, we do not need real-time, we are ready to update them once a day or in a few hours, too, all very convenient.
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h3> <span class="mw-headline" id=".D0.94.D0.BE.D1.81.D1.82.D0.BE.D0.B8.D0.BD.D1.81.D1.82.D0.B2.D0.B0"><font><font> Value </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<dl><dt><font><font>Smooth scalability</font></font></dt><dd><font><font> for 2 proizvoitelnosti dostochno 2x equipment (almost)
+</font></font></dd></dl>
+<ul><li><font><font> Zero cost software
+</font></font></li><li><font><font> Availability on-demand as Amazon Cloud Service - convenient for research tasks
+</font></font></li></ul>
+</div>
+<p><font><font>The advantages of this approach, this platform. </font><font>Very nice and smooth scalability. </font><font>Ie </font><font>If we need to handle twice as much data, or to store twice the data, it suffices to add twice the cluster machines. </font><font>Ie </font><font>not quite exactly two times, but almost twice.
+</font></font></p><p><font><font>Zero cost software. </font><font>There you have a lot of data, you can go to the company Oracle, buy a couple of million dollars a clustered Oracle, and the same consultants, it is not suitable for all companies, especially startup-am. </font><font>I do not know, well, some new social network, they simply can not afford to spend a few million on Oracle. </font><font>They can not afford to Hadoop, take the cluster and use open-sourc-tion Hadoop, as a system of analysis and data storage.
+</font></font></p><p><font><font>Hadoop more convenient for research-tasks. </font><font>For example, you researcher, and you want to explore the correlation between the behavior of users on facebook with anything, anywhere else in your social network, you have a lot of files, hadoop is available as on-demand service on Amazon.
+</font></font></p><p><font><font>Ie </font><font>you wrote something at locally debugged, say OK, now I need a cluster of hundred machines for two hours, you immediately Amazon represents a cluster of hundred machines, you run it its task, get some results, and all as would.
+</font></font></p><p><font><font>Hundred cars an hour at Amazon are relatively cheap, cheaper than at store cluster. </font><font>For research-and it's comfortable enough, then, in the sense that you all need it once a week, you should not store in a cluster, you can order it from Amazon-a.
+</font></font></p><p><object type="image/svg+xml" data="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/Question.html" style="overflow: hidden; vertical-align: middle" width="20" height="20"><a href=""><img alt="Question.svg" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/20px-Question.svg.png" width="20" height="20"></a></object> <i><font><font>From the audience: How much is the order of numbers?</font></font></i>
+</p><p><font><font>An hour ... well, it's the order of hundreds of dollars. </font><font>I honor of speaking already have an Amazon price not remember, but it's pretty cheap, it is quite affordable.
+</font></font></p><p><br><i><font><font>From the audience: Fifty cents an hour ...</font></font></i>
+</p><p><font><font>Yes, but for Hadoop-and need more instances, and perhaps more cluster, well, in general, yes, hundreds of dollars. </font><font>This is such an order, it is clear that if a big task, it is not an hour and ten o'clock, but still, we are talking about hundreds of dollars, ie </font><font>something not very big.
+</font></font></p><div style="clear:both"></div>
+<h3> <span class="mw-headline" id=".D0.9D.D0.B5.D0.B4.D0.BE.D1.81.D1.82.D0.B0.D1.82.D0.BA.D0.B8"><font><font> Limitations </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<ul><li><font><font> The high cost of maintenance and administration
+</font></font></li><li><font><font> Unlike SQL, needs a staff of skilled Java-developer'ov
+</font></font></li><li><font><font> Instability
+</font></font></li><li><font><font> Low speed,
+</font></font></li><li><font><font> Not real-time
+</font></font></li></ul>
+</div>
+<p><br><font><font>And what are the disadvantages in Hadoop-e?
+</font></font></p><p><font><font>First, it's pretty high cost support. </font><font>If you have a Hadoop-cluster of many machines, you need to find an intelligent system administrator who deal in the architecture of Hadoop-and, how it works, and all it will support. </font><font>Ie </font><font>it's really easy, it really takes time.
+</font></font></p><p><font><font>This is in contrast up any industrial storage and expensive, the cost of new data processing is high enough. </font><font>Ie </font><font>if you buy some Oracle, or something like this style, you basically enough to hire some business analysts who will simply write SQL-queries and get some results. </font><font>In this case, this will not work with Hadoopom, you need to be people who will come up with the business part of what data they need, and you will need a team of Java-developers who will write these map-reduce job-s.
+</font></font></p><p><font><font>The team is not very big, but nevertheless, it's still worth the money, developers are quite expensive.
+</font></font></p><p><font><font>Again, the problem with the real-time-th. </font><font>Hadoop is not real-time system. </font><font>If you want to get some data, you do not get so that you will run map-reduce job-s, when the user visits the site. </font><font>You need to update the data at least once an hour, in the background-e, and the user is already calculated data show.
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h3> <span class="mw-headline" id="Real-Time.3F"><font><font> Real-Time? </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<ul><li><font><font>The final result can be loaded into </font></font><tt><font><font>SQL / MemCache</font></font></tt>
+</li><li><font><font>However, </font></font><tt><font><font>SQL / MemCache</font></font></tt><font><font> will not work if the amount of data that needs to Real-Time Access remains high
+</font></font></li><li><font><font>Another solution: </font></font><i><font><font>column oriented Database</font></font></i>
+</li></ul>
+</div>
+<p><font><font>With real-timom relatively solvable problem. </font><font>For example, it is solved in our company. </font><font>We do not need to provide real-time access to the entire volume of data that we have, we run the map-reduce job-s, we get some results, quite valuable, but a reasonable size, which we store in SQL-database in MemCache, in mind, it nonetheless will not work when the data will have a lot.
+</font></font></p><p><font><font>So now ... time is left?
+</font></font></p><p><font><font>You're ten minutes, so I'll talk about column-oriented databases, too approach to storing large amounts of data that need to access realtime.
+</font></font></p><div style="clear:both"></div>
+<h3> <span class="mw-headline" id="Column_oriented_databases"><font><font> Column oriented databases  </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<ul><li><font><font> In SQL-storage approach has some problems
+</font></font></li><li><font><font> Data must be well structured, ALTER TABLE - "expensive" operation
+</font></font></li><li><font><font>Structuring the data in many cases is a plus. </font><font>But when it is not needed, you can store data more efficiently
+</font></font></li></ul>
+</div>
+<p><br><font><font>How Does it Work? </font><font>What do have a problem with SQLem? </font><font>In SQL, in MySQL you can not handle smaller amounts, say, several terabytes, this table will simply not work, you can not receive data from it.
+</font></font></p><p><font><font>Other problems with SQL-eat, if you change the database, for example, any ALTER TABLE, long and difficult on a large table to add any column. </font><font>This is problematic, and when you do not need when you do not need to store structured data, when you shoot restrictions ... </font><font>do not use the features SQL, as a repository of structured data, do not use the relational data can be stored in a bit more efficient structure, and for this to get better performance.
+</font></font></p><p><font><font>This is just a slightly different approach, which is called the </font></font><i><font><font>column-oriented Database</font></font></i><font><font> .
+</font></font></p><div style="clear:both"></div>
+<h4> <span class="mw-headline" id="BigTable"><font><font> BigTable </font></font></span></h4>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:60%">
+<ul><li><font><font> Design introduced by Google in 2004, the year
+</font></font></li></ul>
+<dl><dt><font><font>Principle 1</font></font></dt><dd><font><font> the entire table has one index field called row key (analog primary key)
+</font></font></dd><dt><font><font>Principle 2</font></font></dt><dd><font><font>data in all the other fields are not indexed. </font><font>A table can have any number of fields, add new fields - affects only individual row.
+</font></font></dd></dl>
+<p><font><font>More convenient to represent the storage is not as a table, and the correspondence:
+</font></font></p><pre><font><font>(Row key, column name) ⇒ value
+</font></font></pre><p><font><font>So, in many implementations have data versioning time
+</font></font></p><pre><font><font>(Row key, column name, timestamp) ⇒ value
+</font></font></pre><p><br></p></div>
+<p><font><font>He was introduced by Google, and they still use it, if my memory serves me, this is the article «BigTable», which was published in 2004.
+</font></font></p><p><font><font>Strictly speaking, what BigTable?
+</font></font></p><p><font><font>It is built on several principles.
+</font></font></p><p><font><font>The first principle, that we abandon relational indexing of the fields in our table has exactly one field on which you can search for what is called rowkey, analogue - is primary key in the table.
+</font></font></p><p><font><font>All other fields we are not indexing, do not look for them, and they do not structure the second principle - that the table is wide, ie </font><font>we can add columns at any time, with any type of data should be cheap and good.
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h4> <span class="mw-headline" id="BigTable:_.D0.BF.D1.80.D0.B8.D0.BC.D0.B5.D1.80"><font><font> BigTable: Example </font></font></span></h4>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>Objective: To store information about visitors to the site
+</font></font></p><dl><dt><font><font>Simple solution</font></font></dt><dd><font><font> Cookie
+</font></font></dd><dt><font><font>Lack</font></font></dt><dd><font><font> Cookie size is limited
+</font></font></dd><dt><font><font>BigTable</font></font></dt><dd><font><font> (UserUID, field) ⇒ value
+</font></font></dd></dl>
+<ul><li><font><font> In the Cookie is stored only UserUID
+</font></font></li></ul>
+<dl><dt><font><font>Possible fields</font></font></dt><dd><font><font> date of last visit, history
+</font></font></dd></dl>
+<p><font><font>visits, history display advertisements.
+</font></font></p><ul><li><font><font> The new field is very easy to add
+</font></font></li></ul>
+</div>
+<p><font><font>Let me give you an example, when it is used. </font><font>We want to store data about users of our site. </font><font>Visited the site, took some action, in the case of Google - has made some inquiries, something looked and looked some advertisements, an anonymous user ... and we want to remember about what he did. </font><font>How to solve this problem? </font><font>Many people store information about users Cookies, what he did, what pages looked, which advertisements looked at that clicked. </font><font>With this approach, there is a big problem - cookie size is very limited, there can not be, for example, to record the history of user actions over the past month, it does not, there is no place. </font><font>How this problem can be solved using BigTable?
+</font></font></p><p><font><font>If we have such a repository as BigTable, we can store a cookie in a single parameter - the unique ID. </font><font>In BigTable we store UserUID, as the primary key in a table, and a lot of fields that we are interested in, for example, the history of visits, clicks on the ad, clicks on links, and so on.
+</font></font></p><p><font><font>What is it good? </font><font>The fact that we obviously do not have to look for the remaining fields. </font><font>If we want to know some information about the user, to show him the proper advertising, we need only look for information on the UserID.
+</font></font></p><p><font><font>And as well as the business that it can change, we can add a lot of different fields, and it will be cheap and good. </font><font>Actually this is very good to use BigTable, userID, as rowkey, and all other data as a table.
+</font></font></p><div style="clear:both"></div>
+<h4> <span class="mw-headline" id="BigTable:_.D0.B4.D0.B8.D0.B7.D0.B0.D0.B9.D0.BD"><font><font> BigTable: design </font></font></span></h4>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><i><font><font>Row keys</font></font></i><font><font> are sorted, data is stored on a cluster
+</font></font></p><ul><li><font><font>Each server ( </font></font><i><font><font>Region Server</font></font></i><font><font> ) keeps a certain range of keys
+</font></font></li><li><font><font>Client accesses the </font></font><i><font><font>master node</font></font></i><font><font> and determines which server are interested in its data
+</font></font></li><li><font><font>Reading goes directly to the </font></font><i><font><font>region server</font></font></i>
+</li></ul>
+</div>
+<p><font><font>How does it work? </font><font>This approach, like BigTable, it is highly scalable to large numbers of computers. </font><font>Ie </font><font>if we rowkey, and we are looking exclusively at rowkey, for example, by user ID, as I cited in the previous example, we can sort all the data on this yuzeraydi and store different rang-and these data on different servers. </font><font>Ie </font><font>as there will be a request "to get all the information about the user-ID"? </font><font>The master node stores information which range-s stored on any servers, we first spravshivaem have a master node, which stores the data of interest, and then go directly to this node and read out the data.
+</font></font></p><p><font><font>Again very well - twice as much data → bought twice as many cars, restructure a little store, and we do not restructure, and a system that prestavlyayuschie us access, and all we can store twice as much data.
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h3> <span class="mw-headline" id="HBase"><font><font> HBase </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>Built on Apache Hadoop platforme
+</font></font></p><ul><li><font><font> Storage used HDFS
+</font></font></li><li><font><font> Map Reduce processes can be used to download large amounts of data
+</font></font></li><li><font><font> Reduce performed on stage loading data into a table
+</font></font></li></ul>
+<p><font><font>• Reduce process is performed on the corresponding region server - occurs exclusively local data record
+</font></font></p></div>
+<p><font><font>This paradigm BigTable, developing within the Apache Hadoo, is implementing a project called HBase.
+</font></font></p><p><font><font>Data is stored in Hadoop Distributed File System, which we have already discussed, all seamlessly integrates with Hadoop-ohm, if we write, some map-reduce joby that return any results, there is a very transparent integration, ie </font><font>Reduce the results, you can write directly to the database. </font><font>Since Reduce distribution operation, data will write again in a distributed database in HBase, and in principle, in conjunction with Hadoopom all turns out very convenient.
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><p><br></p><h4> <span class="mw-headline" id="HBase:_.D0.BF.D1.80.D0.BE.D0.B8.D0.B7.D0.B2.D0.BE.D0.B4.D0.B8.D1.82.D0.B5.D0.BB.D1.8C.D0.BD.D0.BE.D1.81.D1.82.D1.8C"><font><font> HBase: performance </font></font></span></h4>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>7 server cluster (16Gb RAM, 8x core CPU, 10K RPM HD)
+</font></font></p><ul><li><font><font> Table 3 billion rows, from 1 to 5 columns
+</font></font></li><li><font><font> The size of each row - about 300 bytes
+</font></font></li><li><font><font> 300 concurrent requests
+</font></font></li><li><font><font> Average: 18ms - reading, 8ms - record
+</font></font></li></ul>
+</div>
+<p><font><font>For example, an example of performance. </font><font>That's quite a simple cluster of seven nodes, node - is 16 or 8 gigabytes of RAM, a fairly simple disk 10K RPM, multiple cores on any ordinary Intel Xeon, here written accurate data.
+</font></font></p><p><font><font>Table of three billion records, that's pretty much every record is 3-5 fields ... And if you run the test on 300 requests per second for writing and reading, reading will take around 18 milliseconds, write - faster, somewhere 10 milliseconds. </font><font>This performance is achieved at some MySQLe impossible. </font><font>With HBase it turns out.
+</font></font></p><div style="clear:both"></div>
+<h4> <span class="mw-headline" id="HBase:_.D0.BD.D0.B5.D0.B4.D0.BE.D1.81.D1.82.D0.B0.D1.82.D0.BA.D0.B8"><font><font> HBase: Cons </font></font></span></h4>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>About 1% percent of queries work much more than the average (about </font></font><tt><font><font>300ms</font></font></tt><font><font> )
+</font></font></p><ul><li><font><font>Ability to index only one field ( </font></font><i><font><font>row Key</font></font></i><font><font> )
+</font></font></li><li><font><font> Instability: the last version of the most productive possible loss of data 
+</font></font></li></ul>
+</div>
+<p><font><font>What are the disadvantages in HBase, and in general, this approach BigTable? </font><font>Unstructured, i.e. </font><font>nonrelational. </font><font>We have only one index field, where we can look, we do not join-s, we have complex queries WHERE, yeah, it's really big flaws, but nevertheless, in a large class of problems is simply not necessary.
+</font></font></p><p><font><font>And not just the shortcomings approach, namely HBase, an unstable product, the penultimate version works steadily, slowly and steadily working quite correctly, the latest version is well written, and works quickly, but sometimes falls, sometimes data is lost.
+</font></font></p><div class="paragraph"><br><div style="clear:both"></div>
+</div><h3> <span class="mw-headline" id="Hadoop:_.D0.BE.D0.B1.D0.BB.D0.B0.D1.81.D1.82.D0.B8_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D1.8F"><font><font> Hadoop: the use of </font></font></span></h3>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<dl><dt><font><font>MapReduce</font></font></dt><dd><font><font> where speed is not critical Results: processing log files, build staitsticheskih models, index construction, research
+</font></font></dd><dt><font><font>HBase</font></font></dt><dd><font><font>where small non-critical data loss and do not necessarily Guaranteed response time (eg storage of user information in the </font></font><i><font><font>Online Advertising</font></font></i><font><font> )
+</font></font></dd></dl>
+</div>
+<p><font><font>And a little bit more about the use, in fact, map-reduce, we discussed this research, an analysis of the data is to build statistical models, strictly speaking HBase and BigTable ..., yeah, I forgot to say about one drawback HBase-and, although in general requests quite fast, it sometimes happens that some query takes a lot of, let's say a second, no, the second is unlikely, say, half a second, three milliseconds.
+</font></font></p><p><font><font>HBase can be used in such problems when we do not need a guaranteed response time, when we are not critical data loss, here again, keeping information on unique users. </font><font>To us the user came to the site, if we could not identify it, I do not know .... shut down ... </font><font>(Off microphone).
+</font></font></p><h2> <span class="mw-headline" id=".D0.92.D0.BE.D0.BF.D1.80.D0.BE.D1.81.D1.8B"><font><font> Questions </font></font></span></h2>
+<div style="float:right; background-color: #ffffee; border:1px dashed #FFC000; padding:0.5em; margin:0.5em; font-size:110%; max-width:40%">
+<p><font><font>Where not to use Hadoop
+</font></font></p><ul><li><font><font> Precise calculations
+</font></font></li><li><font><font> Billing
+</font></font></li><li><font><font> Trading
+</font></font></li><li><font><font> Banking
+</font></font></li></ul>
+</div>
+<p><br></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>You can say once again how a request for a sample MapReduce facebook, when you request results. </font><font>I just do not understand functional programming, you said ... I do not understand ... what is the idea?
+</font></font></div>
+<p></p><p><font><font>Idea of ​​what? </font><font>General idea of ​​MapReduce? </font><font>The idea is that it is quite a large class of data processing tasks can be expressed ...
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Here we have a bunch of files distributed on thousands of machines, here. </font><font>It logs. </font><font>Here we have a request, "Tell me, what browsers are used more often," as he is looking for here?
+</font></font></div>
+<p></p><p><font><font>Well, in a sense, like looking for? </font><font>You asked these two processes, map and reduce, and then, the process map-and ...
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>What's in the map-e is specified?
+</font></font></div>
+<p></p><p><font><font>In the Map-e function, just a function that takes a line, and on the way out - the key and value. </font><font>Just given a function ...
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>And what is the key and value? ...
+</font></font></div>
+<p></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>can I answer?
+</font></font></div>
+<p></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Just a term even the term ...
+</font></font></div>
+<p></p><p><font><font>As the key and value? </font><font>Just a couple of rows of two, relatively speaking.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Question probably in this particular case, that is the key, and that - value?
+</font></font></div>
+<p></p><p><font><font>In the case of counting statistics? </font><font>Key - is the browser, as I said, meaning a unit.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>As prescribed in the log - the browser there are two points ... 
+</font></font></div>
+<p></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>It does not matter what will be the key that value, ... Moreover, the map function may not exist.??? </font><font>function. </font><font>For example, you have a whole line of the log may be the key, and the value - unit. </font><font>... (Inaudible dispute in the hall)
+</font></font></div>
+<p></p><p><font><font>In fact, it would be yavlyatsya key, and that - the value is quite important, because more will happen before the grouping processes reduce.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Grouping is required?
+</font></font></div>
+<p></p><p><font><font>Obligatory! </font><font>Actually why he is the key! </font><font>By grouping key will occur. </font><font>Reduce get a key and a set of values ​​associated with that key.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>OK, then the key must be a browser ...
+</font></font></div>
+<p></p><p><font><font>Yes.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font> ... From the point of the log value to optimize meaningful throw, make a blank line?
+</font></font></div>
+<p></p><p><font><font>Well, strictly speaking, this is the value of some constants, ie </font><font>unit.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>that means edinichka?
+</font></font></div>
+<p></p><p><font><font>Edinichka - this number. </font><font>Key - the browser, and the unit - this number.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>42 ..., yeah. </font><font>Most important step is reduce, which Shmatok of data from a huge Shmatok data, make a small set, tiddly Statistics.
+</font></font></div>
+<p></p><p><font><font>Yes, exactly.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Map-reduce a distributed SQL??? </font><font>...?
+</font></font></div>
+<p></p><p><font><font>Well, it certainly is not quite SQL, I talked about how it is used in the form of SQL, as it is a very simple example, in fact, with the help of MapReduce can solve much more complex problems. </font><font>For example, we are using the Map-Reduce, we construct a statistical model by clicking on contextual advertising, which allows you to search the probability of a particular click on a particular ad. </font><font>Any more questions?
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Just wanted to clarify about parallelism. </font><font>Just the bottom line is that you have a huge log, and its delish you a thousand servers, for example. </font><font>Delish log into a thousand pieces, and each piece you send ...
+</font></font></div>
+<p></p><p><font><font>Yes, it is once again do not me, it makes Apache Hadoop, ie </font><font>programmer it looks pretty clear. </font><font>I'm just giving these features and more in there somehow divided, each piece a separate process called mapper, which performs the map. </font><font>Then, everything is grouped phase begins reduce, for a programmer there, everything is transparent, no need to determine how we divide the files there.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>A stable Hadoop works?
+</font></font></div>
+<p></p><p><font><font>Well, ...
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Laughter 
+</font></font></div>
+<p></p><p><font><font>Actually, yes, it is a complex system, but with a good system administrator, it is stable. </font><font>Ie </font><font>In principle there is no problem. </font><font>Again Hadoop, despite the fact that it is a complex system, if you have any mapper dropped or lost connection to the node, do not worry, you will restart on another node with the same there ... </font><font>and in general, the design itself, it is quite stable, but with a specific implementation Hadoop, there are small problems.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>What nontrivial algorithms can be used? </font><font>I mean not just counting "how many times", and may be something interesting?
+</font></font></div>
+<p></p><p><font><font>Well, as I said - we build a probabilistic model, which predicts the probability of a click on contextual advertising. </font><font>If you are interested in this particular model ...
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>I find it interesting to be able to say "this is now a well-known algorithm" ...
+</font></font></div>
+<p></p><p><font><font>I do not know ... We use the concept of decision tree, on algorimtu IT Tree, I do not know if it tells you something ...
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>I then said, but the question is exactly how to use it ...
+</font></font></div>
+<p></p><p><font><font>Well, it's a very long story, how to use it, in Hadoop, I do not know, I can tell you after.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>What other things? </font><font>??? </font><font>Effectively do ...?
+</font></font></div>
+<p></p><p><font><font>Possible. </font><font>Large reservoir problems is solved, it's difficult to list them all right.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>And that can not be solved?
+</font></font></div>
+<p></p><p><font><font>For example, if you need some report show if you need to build a tree or display the results users realtime, when press any button on the site, then you will not succeed, because such Joba you can take a minute, ten seconds ...
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>I do not know, the matrix-vector umnozhaetyasya?
+</font></font></div>
+<p></p><p><font><font>Matrix ... Tough question. </font><font>We need to think. </font><font>Probably not, probably not even.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Math too, probably not much.
+</font></font></div>
+<p></p><p><font><font>Watching what. </font><font>Some math very well expressed and is parallel to the map reduce. </font><font>Some do not.
+</font></font></p><p><font><font>But in general, this is not some silver bullet that here, we have put Hadoop and we can do anything, will finally be happy. </font><font>No, this is just one way of handling data, which for some tasks is very convenient.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Do large companies who use Hadoopom?
+</font></font></div>
+<p></p><p><font><font>For example, I use Hadoop to build a search to build a search index. </font><font>Facebook uses Hadoop company for research and development, they record the actions of users in the log files that are stored on a distributed file system, their research developers write some map-reduce jobs, some calculations write any correlation looking study some statistical models.
+</font></font></p><p><font><font>In fact, many companies use it, so, for example, Yahoo, Facebook - probably the biggest.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>And about Hadoop + + please tell us.
+</font></font></div>
+<p></p><p><font><font>And I do not even know what it is.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>And Yahoo, it turns out no longer uses their search engine Bing-ovsky now stands.
+</font></font></div>
+<p></p><p><font><font>Yes, now they do close the business, moving to Bing-ovsky search engine. </font><font>Nevertheless, now the search engine works, he worked for two years on Hadoope, and in general, the search has been such that they have worked.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Why Google is then in your search does not use?
+</font></font></div>
+<p></p><p><font><font>Google used a map-reduce and distributed file systems to build and store the index, until recently. </font><font>About a month ago they annonsirovali that their new search engine and index construction uses map reduce, uses something new.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>BigTable they use ...
+</font></font></div>
+<p></p><p><font><font>BigTable it uses to actually store the index that was a real-time access, it is always used. </font><font>Nevertheless, it is for data processing, to a large volume of pages to build the index actually build BigTable, which stores data previously used map reduce, now used for something new.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Have you used these data volumes for what?
+</font></font></div>
+<p></p><p><font><font>In our case, we are a company that shows contextual advertising, we generate from 115 gigabytes of files per day, we want to get some valuable information from these log files. </font><font>At least this is some REPORTS for analysts to properly speaking, our customers, which we show advertising, and also to build statistical models that allow us to decide which ads to show any particular user so that they are more likely clicked, eg or there ...
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Here I have a question - suppose I hate open-source, like Microsoft, I hate hippies and the Apache Foundation, for example. </font><font>What should I do instead of Hadoop-as, for example?
+</font></font></div>
+<p></p><p><font><font>For example, instead Hadoopa do taschem something? </font><font>There is some realization, too opensorsnaya on sisharpe, which is used in MySpace ...
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>No, no, no ... I have microsoftware because Windows Azure, this is something ......
+</font></font></div>
+<p></p><p><font><font>No, Windows Azure is something else, it's an analog of Amazon EC2, where you can buy cars ...
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>No, there they have a store, a huge repository ... at Amazon do not exist, and there MAP-redyus only of the Microsoft?
+</font></font></div>
+<p></p><p><font><font>No, as far as I know, no. </font><font>If they certainly release some map-reduce, it will be more stable than hadoop.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>There are some things, like map-reduce, but riltaymovye?
+</font></font></div>
+<p></p><p><font><font>What do you mean similar? </font><font>Approach map-reduce, is handling large amounts of data on a cluster, so that ...
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>That yes, suitable for processing the same amount of problems, but riltaymovye.
+</font></font></div>
+<p></p><p><font><font>Well BigTable, again. </font><font>You have processed the data, store them in BigTable, in HBase, as I described.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>... But does not handle ...
+</font></font></div>
+<p></p><p><font><font>You want all at once - and to process the data and save them somewhere, all real-time.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Well maybe there is a class of problems which can be solved riltaym ...
+</font></font></div>
+<p></p><p><font><font>Well, if you need a reel-time, store the data in bigteyble quickly Access Policy to them, something quick to read the memory, but such is not present.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>And I have a small amount of data ... to work quickly ...
+</font></font></div>
+<p></p><p><font><font>If you have a small amount of data, then use regular SQL and not to show off.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Tell us something about the Pig.
+</font></font></div>
+<p></p><p><font><font>About Pig? </font><font>I have already said that this framework on top of Apache Hadoop, instead of having to write specific mappers and reduce, here I had a slide with sample code,
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>And to this all have some SDK?
+</font></font></div>
+<p></p><p><font><font>Here is some code
+</font></font></p><div class="center"><div class="floatnone"><a href="http://lib.custis.ru/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010).pdf&page=20" class="image"><img alt="Apache Hadoop (Vladimir Klimontovich on ADD-2010). Pdf" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/page0020-720px-Apache_Hadoop_(Владимир_Климонтович_на_ADD-2010).pdf.jpg" width="720" height="405"></a></div></div>
+<p><font><font>We write in this form, in a declarative form, what data we need, and this request will be parallelized on map-reduce.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>There interpreter, something is there?
+</font></font></div>
+<p></p><p><font><font>Well there is an interpreter, he builds a parse tree, then this syntax tree parser that understands what what procedure Mapa what redyus, because it is more than one MAP-redyus, it will likely sequence MAP-redyus problems and it all starts.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>A MAP-reds in Java written?
+</font></font></div>
+<p></p><p><font><font>Well native API in Java, because he Hadoop written in Java.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>And there SDK for other languages?
+</font></font></div>
+<p></p><p><font><font>There SDK, there. </font><font>There is a notion streaming, it's something like CGI, when you write a script that gets the text and produce texts, and write them you can on anything. </font><font>There are more advanced API for C + +, COM, for Python-a. </font><font>Generally, you can write on anything in Java fastest since the native API.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Analogue ODBC have any?
+</font></font></div>
+<p></p><p><font><font>Nope, no.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>About Pig I heard that people have written a simple script to Pige, then rewrote it on Map Reduce, and he earned them ten times faster. </font><font>Something has changed in this respect, he became more effective?
+</font></font></div>
+<p></p><p><font><font>We studied ... we have our own framework, in-house, which describe the flow XML-s, from which then again generated map-reduce joby. </font><font>We tried to go to the Hive, on the Pig. </font><font>With Hive nothing happened with Pig-th ... I do not have this project, in principle, like it turns out, and quickly.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>Where there is no XML-I do not Enterprise. </font><font>And you have a large company.
+</font></font></div>
+<p></p><p><font><font>We average company.
+</font></font></p><p></p><div style="font-size:80%; font-family:cursive; background:#eeeeee; margin-left:30px"><font><font>A Pig ... performs optimization.
+</font></font></div>
+<p></p><p><font><font>Of course fulfills something he tries to do. </font><font>I can not say how well it does it, formulate a class of problems which it optimizes.
+</font></font></p><p><font><font>However, for simple tasks he is doing so as fast as native code in Java. </font><font>In general, in principle, many of which optimizes.
+</font></font></p><div style="clear:both"></div>
+<h2> <span class="mw-headline" id=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D1.8F"><font><font> Notes </font></font></span></h2>
+<ul><li> <a rel="nofollow" class="external text" href="http://addconf.ru/event.sdf/ru/add_2010/authors/133/168"><font><font>page report on the website ADD-2010</font></font></a>
+</li><li> <a rel="nofollow" class="external text" href="http://citforum.urc.ac.ru/database/articles/dw_appliance_and_mr/"><font><font>MapReduce: inside, outside, or on the side of the parallel DBMS?</font></font></a>
+</li><li> <a rel="nofollow" class="external text" href="http://refcardz.dzone.com/refcardz/getting-started-apache-hadoop?oid=list29363"><font><font>Crib on Hadoop</font></font></a>
+</li><li> <a rel="nofollow" class="external text" href="http://habrahabr.ru/blogs/algorithm/103467/"><font><font>MapReduce without zaum</font></font></a>
+</li></ul>
+<blockquote>
+<div style="float:right">
+<p><a name="ADD_2010:_.D0.9E.D1.82.D1.87.D0.B5.D1.82_.D0.93.D0.BB.D0.B5.D0.B1.D0.B0_.D0.A2.D0.B0.D1.80.D0.B0.D1.81.D0.BE.D0.B2.D0.B0.2FApache_Hadoop" href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#ADD_2010:_.D0.9E.D1.82.D1.87.D0.B5.D1.82_.D0.93.D0.BB.D0.B5.D0.B1.D0.B0_.D0.A2.D0.B0.D1.80.D0.B0.D1.81.D0.BE.D0.B2.D0.B0.2FApache_Hadoop"><font><font>⚓</font></font></a>
+</p></div>
+<dl><dt><strong class="selflink"><font><font>Apache Hadoop (Vladimir Klimontovich on ADD-2010)</font></font></strong>
+</dt></dl>
+<div class="paragraph"><font><font>First was the introduction of </font></font><tt><font><font>MapReduce</font></font></tt><font><font> . </font><font>Then there was the story of how it is in </font></font><a rel="nofollow" class="external text" href="http://hadoop.apache.org/"><font><font>Apache Hadoop</font></font></a><font><font> works. </font><font>Works is not very stable, podglyuchivaet. </font><font>So you can only use it on the Web. </font><font>Yet there is an interesting project for broadcast SQL queries in MapReduce - </font></font><a rel="nofollow" class="external text" href="http://hadoop.apache.org/hive/"><font><font>Apache Hive</font></font></a><font><font> . </font><font>And your language queries in </font></font><a rel="nofollow" class="external text" href="http://hadoop.apache.org/pig/"><font><font>Apache Pig</font></font></a><font><font> . </font><font>Since after the MapReduce results logically stored in databases "key-value", that is also a DB </font></font><a rel="nofollow" class="external text" href="http://hbase.apache.org/"><font><font>HBase</font></font></a><font><font> .
+</font></font><div style="float:right; font-size:75%">
+<p><a href="http://lib.custis.ru/ADD_2010:_%D0%9E%D1%82%D1%87%D0%B5%D1%82_%D0%93%D0%BB%D0%B5%D0%B1%D0%B0_%D0%A2%D0%B0%D1%80%D0%B0%D1%81%D0%BE%D0%B2%D0%B0/Apache_Hadoop" title="ADD 2010: Report Gleb Tarasov / Apache Hadoop"><font><font>ADD 2010: Report Gleb Tarasov / Apache Hadoop</font></font></a>
+</p></div>
+<div style="clear:both"></div>
+</div></blockquote>
+<blockquote>
+<div style="float:right">
+<p><a name="ADD_2010:_.D0.9E.D1.82.D1.87.D1.91.D1.82_.D0.A0.D1.83.D1.81.D0.B5.D1.86.D0.BA.D0.BE.D0.B3.D0.BE_.D0.93.D0.B5.D0.BE.D1.80.D0.B3.D0.B8.D1.8F.2FApache_Hadoop" href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#ADD_2010:_.D0.9E.D1.82.D1.87.D1.91.D1.82_.D0.A0.D1.83.D1.81.D0.B5.D1.86.D0.BA.D0.BE.D0.B3.D0.BE_.D0.93.D0.B5.D0.BE.D1.80.D0.B3.D0.B8.D1.8F.2FApache_Hadoop"><font><font>⚓</font></font></a>
+</p></div>
+<dl><dt><strong class="selflink"><font><font>Apache Hadoop (Vladimir Klimontovich on ADD-2010)</font></font></strong>
+</dt></dl>
+<p><font><font>The report about the free framework </font></font><tt><font><font>Apache Hadoop</font></font></tt><font><font> supports the execution of distributed applications running on large clusters built on conventional equipment. </font><font>He spoke about the algorithm </font></font><tt><font><font>MapReduce</font></font></tt><font><font> , used in the framework, and the distributed file system HDFS. </font><font>Slightly touched upon transfer SQL-expressions in terms of map-reduce. </font><font>Examples were given of the use of the framework in projects Yahoo and Last.fm. </font><font>This was followed by a story about the Apache Hive - storage infrastructure and data processing, built on top of Hadoop. </font><font>Possible application areas: research, data mining, reporting. </font><font>Pros:
+</font></font></p><ul><li><font><font> Nice smooth scalability
+</font></font></li><li><font><font> Zero cost software
+</font></font></li><li><font><font> Availability tasks on-demand at the facilities Amazon Cloud Service.
+</font></font></li></ul>
+<p><font><font>Disadvantages:
+</font></font></p><ul><li><font><font> The high cost of maintenance and administration
+</font></font></li><li><font><font> Requires highly qualified java-developers
+</font></font></li><li><font><font> Instability
+</font></font></li><li><font><font> Low speed / no realtime
+</font></font></li></ul>
+<p><font><font>At the conclusion of the report was discussed on the implementation of Bigtable database on top of Hadoop - Hbase.
+</font></font></p><div class="paragraph"><b><font><font>Overall, it was interesting.</font></font></b>
+<div style="float:right; font-size:75%">
+<p><a href="http://lib.custis.ru/ADD_2010:_%D0%9E%D1%82%D1%87%D1%91%D1%82_%D0%A0%D1%83%D1%81%D0%B5%D1%86%D0%BA%D0%BE%D0%B3%D0%BE_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D1%8F/Apache_Hadoop" title="ADD 2010: Report Rusetsky George / Apache Hadoop"><font><font>ADD 2010: Report Rusetsky George / Apache Hadoop</font></font></a>
+</p></div>
+<div style="clear:both"></div>
+</div></blockquote>
+<blockquote>
+<div style="float:right">
+<p><a name="ADD_2010:_.D0.9E.D1.82.D1.87.D0.B5.D1.82_.D0.90.D0.BB.D0.B5.D0.BA.D1.81.D0.B5.D0.B5.D0.B2.D0.B0_.D0.90.D0.BB.D0.B5.D0.BA.D1.81.D0.B5.D1.8F.2F.D0.92.D0.BB.D0.B0.D0.B4.D0.B8.D0.BC.D0.B8.D1.80_.D0.9A.D0.BB.D0.B8.D0.BC.D0.B0.D0.BD.D1.82.D0.BE.D0.B2.D0.B8.D1.87._Apache_Hadoop" href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#ADD_2010:_.D0.9E.D1.82.D1.87.D0.B5.D1.82_.D0.90.D0.BB.D0.B5.D0.BA.D1.81.D0.B5.D0.B5.D0.B2.D0.B0_.D0.90.D0.BB.D0.B5.D0.BA.D1.81.D0.B5.D1.8F.2F.D0.92.D0.BB.D0.B0.D0.B4.D0.B8.D0.BC.D0.B8.D1.80_.D0.9A.D0.BB.D0.B8.D0.BC.D0.B0.D0.BD.D1.82.D0.BE.D0.B2.D0.B8.D1.87._Apache_Hadoop"><font><font>⚓</font></font></a>
+</p></div>
+<dl><dt><strong class="selflink"><font><font>Apache Hadoop (Vladimir Klimontovich on ADD-2010)</font></font></strong>
+</dt></dl>
+<p><font><font>Standard start of </font></font><b><font><font>Hadoop</font></font></b><font><font> . </font><font>Told that there nadstroyna over </font></font><b><font><font>Map / Reduce</font></font></b><font><font> , that performs </font></font><b><font><font>SQL</font></font></b><font><font> -query data. </font><font>Lightly touched </font></font><b><font><font>HDFS </font></font></b> <b><font><font>BigTable</font></font></b><font><font> and something else. </font><font>Smiled a couple of phrases:
+</font></font></p><ol><li><font><font> Well, yes, falls sometimes lose data.
+</font></font></li><li> <b><font><font>Microsoft</font></font></b><font><font> would have done better.
+</font></font></li></ol>
+<div class="paragraph"><font><font>I've somehow most of the report heard somewhere, so much excitement left.
+</font></font><div style="float:right; font-size:75%">
+<p><a href="http://lib.custis.ru/ADD_2010:_%D0%9E%D1%82%D1%87%D0%B5%D1%82_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B5%D0%B2%D0%B0_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D1%8F/%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%B0%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87._Apache_Hadoop" title="ADD 2010: Alexei Alexeev Report / Vladimir Klimantovich.  Apache Hadoop"><font><font>ADD 2010: Alexei Alexeev Report / Vladimir Klimantovich. </font><font>Apache Hadoop</font></font></a>
+</p></div>
+<div style="clear:both"></div>
+</div></blockquote>
+<blockquote>
+<div style="float:right">
+<p><a name=".D0.9E.D1.82.D1.87.D0.B5.D1.82_.D0.BE_.D0.BA.D0.BE.D0.BD.D1.84.D0.B5.D1.80.D0.B5.D0.BD.D1.86.D0.B8.D0.B8_ADD-2010_-_.D0.92.D0.BB.D0.B0.D0.B4.D0.B8.D1.81.D0.BB.D0.B0.D0.B2_.D0.98.D0.BE.D1.84.D0.B5.2FApache_Hadoop" href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#.D0.9E.D1.82.D1.87.D0.B5.D1.82_.D0.BE_.D0.BA.D0.BE.D0.BD.D1.84.D0.B5.D1.80.D0.B5.D0.BD.D1.86.D0.B8.D0.B8_ADD-2010_-_.D0.92.D0.BB.D0.B0.D0.B4.D0.B8.D1.81.D0.BB.D0.B0.D0.B2_.D0.98.D0.BE.D1.84.D0.B5.2FApache_Hadoop"><font><font>⚓</font></font></a>
+</p></div>
+<dl><dt><strong class="selflink"><font><font>Apache Hadoop (Vladimir Klimontovich on ADD-2010)</font></font></strong>
+</dt></dl>
+<p><font><font>Were told about the NoSQL-platform </font></font><tt><a rel="nofollow" class="external text" href="http://hadoop.apache.org/"><font><font>Apache Hadoop</font></font></a></tt><font><font> . </font><font>The platform allows deferred distributively process large amounts of data. </font><font>Treatment consists of two steps: </font></font><tt><font><font>Map</font></font></tt><font><font> - provide baseline data (all though from text files) as a key-value, and </font></font><tt><font><font>Reduce</font></font></tt><font><font> - treatment, eg, aggregation. </font><font>Steps described on </font></font><tt><font><font>Java</font></font></tt><font><font> .
+</font></font></p><p><font><font>There were examples of use.
+</font></font></p><p><font><font>Although the system is unstable (yes, a lot of bugs!) And road maintenance (find the fool behind this watch on fulltime), even large companies are not averse to use (Google, Yahoo, Facebook). </font><font>Moreover, the platform has acquired related technologies. </font><font>For example, broadcast </font></font><tt><font><font>SQL</font></font></tt><font><font> -queries in </font></font><tt><font><font>MapReduce</font></font></tt><font><font> -task.
+</font></font></p><div class="paragraph"><font><font>Rating ::)
+</font></font><div style="float:right; font-size:75%">
+<p><a href="http://lib.custis.ru/%D0%9E%D1%82%D1%87%D0%B5%D1%82_%D0%BE_%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B8_ADD-2010_-_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D1%81%D0%BB%D0%B0%D0%B2_%D0%98%D0%BE%D1%84%D0%B5/Apache_Hadoop" title="Conference Report ADD-2010 - Vladislav Iofe / Apache Hadoop"><font><font>Conference Report ADD-2010 - Vladislav Iofe / Apache Hadoop</font></font></a>
+</p></div>
+<div style="clear:both"></div>
+</div></blockquote>
+<hr>
+<p>
+<iframe src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/Question.html" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowtransparency="true"></iframe>
+
+</p><div style="font-size:60%">
+<p><font><font>Any changes to this article will be overwritten the next time replication. </font><font>If you have a serious comment on the text of the article, write it in the section «discussion».
+</font></font></p><p><font><font>Replication: </font></font><a href="http://www.custis.ru/"><font><font>Knowledge Base "custom Inform System" → " </font></font><strong><font><font>Apache Hadoop (Vladimir Klimontovich on ADD-2010)</font></font></strong><font><font> "</font></font></a>
+</p></div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 1082/1000000
+Post-expand include size: 133560/2097152 bytes
+Template argument size: 16435/2097152 bytes
+Expensive parser function count: 5/100
+-->
+
+<!-- Saved in parser cache with key wiki13:pcache:idhash:4188-0!*!0!!ru!2!* and timestamp 20131212144513 -->
+</div><div class="printfooter"><font><font>
+Source -</font></font><a href="http://lib.custis.ru/index.php?title=Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)&oldid=32403"><font></font></a><font></font></div>
+    <div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://lib.custis.ru/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Categories" title="Inside: Categories"><font><font>Categories</font></font></a><font><font> :</font></font><ul><li><a href="http://lib.custis.ru/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:ADD-2010" title="Category: ADD-2010"><font><font>ADD-2010</font></font></a></li><li><a href="http://lib.custis.ru/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%9F%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_(%D0%B4%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B)" title="Category: Parallel Programming (Reports)"><font><font>Parallel Programming (Reports)</font></font></a></li><li><a href="http://lib.custis.ru/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%94%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4_%D1%81%D0%BE_%D1%81%D1%82%D0%B5%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BE%D0%B9" title="Category: Report of the transcript"><font><font>Report of the transcript</font></font></a></li><li><a href="http://lib.custis.ru/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:NOSQL_(%D0%B4%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B)" title="Category: NOSQL (reports)"><font><font>NOSQL (reports)</font></font></a></li></ul></div></div>    <!-- end content -->
+        <div class="visualClear"></div>
+   </div>
+  </td>
+  <td class="headline_right ar screenonly"><img alt="" height="73" width="17" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/headline_right.gif"></td>
+ </tr>
+ <tr class="screenonly">
+  <td valign="top"></td>
+  <td class="headline_right ar vb"><img alt="" height="89" width="17" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/info_bottom_right.gif"></td>
+ </tr>
+</tbody></table>
+
+<div id="prefooter1"></div>
+
+<table bgcolor="#FBFCFD" class="screenonly">
+ <tbody><tr>
+  <td class="separator_left" width="18%"></td>
+  <td class="separator_right" width="82%"></td>
+  <td class="separator_right"><img alt="" height="15" width="17" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/spacer.gif"></td>
+ </tr>
+</tbody></table>
+
+<div id="footer" role="contentinfo">
+	<div id="f-poweredbyico">
+		<a href="http://www.mediawiki.org/"><img src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>
+		<a href="http://wiki.4intra.net/MediaWiki4Intranet"><img src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/poweredby-4intranet.png" title="Powered by MediaWiki4Intranet extension bundle" alt="MediaWiki4Intranet" width="88" height="31"></a>
+	</div>
+	<ul id="f-list">
+		<li id="lastmod"><font><font> Last change of this page: 21:00, November 21, 2011.</font></font></li>
+		<li id="viewcount"><font><font>This page has been accessed 6160 times.</font></font></li>
+		<li id="numberofwatchingusers"><font><font>[0 watching users]</font></font></li>
+	</ul>
+</div>
+
+
+<div class="bottom" style="width: 100%"></div>
+<script>if(window.mw){
+	mw.loader.load(["mediawiki.user", "mediawiki.util", "mediawiki.page.ready", "mediawiki.legacy.wikibits", "mediawiki.legacy.ajax", "mediawiki.legacy.mwsuggest", "ext.favrate", "ext.Drafts"]);
+}
+</script><script type="text/javascript" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/load(3).php"></script>
+<link rel="stylesheet" type="text/css" href="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/custisprint.css" media="print"><script type="text/javascript" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/common.js"></script>
+<link rel="stylesheet" type="text/css" href="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/custis.css">
+<script type="text/javascript" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/slimbox2.js"></script>
+
+<script type="text/javascript" src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/slimboxthumbs.js"></script>
+
+<script>
+$( window ).on( 'load', function() {makeSlimboxThumbs( jQuery, "/[^:]+:(.*)", "http://lib.custis.ru" ); } );
+</script>
+<script>if(window.mw){
+	mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"custisru","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,
+	"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"wikieditor-preview":1,"wikieditor-publish":0,"wpnumberheadings":1,"vector-simplesearch":true,"openid-hide":0,"openid-update-on-login-nickname":false,"openid-update-on-login-email":false,"openid-update-on-login-fullname":false,"openid-update-on-login-language":false,"openid-update-on-login-timezone":false,"variant":"ru","language":"ru","searchNs0":true,"searchNs1":false,"searchNs2":true,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":true,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":true,"searchNs13":false,"searchNs14":true,"searchNs15":false,"searchNs100":false,"searchNs101":false,"searchNs104":false,"searchNs105":false,"extensionDrafts_enable":true});;mw.user.tokens.set({"editToken":"+\\","watchToken":false});;mw.loader.state
+	({"user.options":"ready","user.tokens":"ready"});
+	
+	/* cache key: wiki13:resourceloader:filter:minify-js:4:ebdfdb5ba33808ac663e16a5317aa295 */
+}
+</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1033775-7");
+pageTracker._trackPageview();
+</script><!-- Served in 0.499 secs. -->
+<div id="lbOverlay" style="display: none; "></div><div id="lbCenter" style="display: none; "><div id="lbImage"><div style="position: relative;"><a id="lbPrevLink" href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#"></a><a id="lbNextLink" href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#"></a></div></div></div><div id="goog-gt-tt" class="goog-tooltip skiptranslate" dir="ltr" style="visibility: hidden; left: 301px; top: 487px; display: none; "><div style="padding: 8px;"><div><div class="logo"><img src="./Apache Hadoop (Vladimir Klimontovich on ADD-2010) - CustisWiki_files/translate-32.png" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text">Когда мы так обрабатываем данные, допустим, вот в том же last.fm, мы строим эту статистику, у нас данные хранятся в файле, если мы будем каждый раз запускать map-reduce job-ы на всех файлах, которые есть, это будет очень долго и неправильно.</div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none; opacity: 0; "></div></div><div id="lbBottomContainer" style="display: none; "><div id="lbBottom"><a id="lbCloseLink" href="http://lib.custis.ru/Apache_Hadoop_(%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B8%D1%87_%D0%BD%D0%B0_ADD-2010)#"></a><div id="lbCaption"></div><div id="lbNumber"></div><div style="clear: both;"></div></div></div></body></html>

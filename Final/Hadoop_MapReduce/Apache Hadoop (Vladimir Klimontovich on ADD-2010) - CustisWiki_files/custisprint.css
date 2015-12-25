@@ -1,0 +1,14 @@
+/**
+ * CSS in this file is used by *all* skins for printing purposes (that have any CSS at all).
+ * Be careful what you put in here, since what looks good in one skin may not in
+ * another, but don't ignore the poor non-Monobook users either.
+ */
+
+img { max-width: 17cm; height: auto !important; }
+dt { font-weight: bold; }
+
+/* Hierarchical numbering of HTML lists */
+ol.multinum, .multinum ol { counter-reset: item; margin-left: 2em; padding-left: 1em; }
+ol.multinum ol, .multinum ol ol { padding-left: 0; }
+ol.multinum li, .multinum ol li { display: block; }
+ol.multinum li:before, .multinum ol li:before { margin-left: -2em; content: counters(item, ".") ". "; counter-increment: item; }
